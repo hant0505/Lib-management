@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.Game2048">
+    <children>
+        <GridPane fx:id="gameGrid" layoutX="50.0" layoutY="50.0" />
+        <Label fx:id="scoreLabel" layoutX="50.0" layoutY="10.0" text="Score: 0"/>
+        <Button layoutX="50.0" layoutY="400.0" text="Left" onAction="#handleLeft" />
+        <Button layoutX="150.0" layoutY="400.0" text="Up" onAction="#handleUp" />
+        <Button layoutX="250.0" layoutY="400.0" text="Down" onAction="#handleDown" />
+        <Button layoutX="350.0" layoutY="400.0" text="Right" onAction="#handleRight" />
+    </children>
+</AnchorPane>
