@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="1300.0" prefHeight="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.user.Controller">
+   <AnchorPane maxWidth="-Infinity" maxHeight="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7;">
+      <Label layoutX="422.0" layoutY="221.0" text="Welcome to library!" textAlignment="CENTER" textFill="#6b5848" textOverrun="CLIP">
+         <font>
+            <Font name="Century Gothic Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="416.0" layoutY="332.0" text="Username:">
+         <font>
+            <Font name="Century Gothic Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tf_username" layoutX="556.0" layoutY="322.0" prefHeight="50.0" prefWidth="319.0" promptText="Enter Username" style="-fx-background-color: #ebd8c4;">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </TextField>
+      <Button fx:id="button_logIn" layoutX="605.0" layoutY="465.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="124.0" style="-fx-background-color: #cfda6b; -fx-cursor: hand;" text="Log In" textAlignment="CENTER" textFill="#6b5848">
+         <font>
+            <Font name="Century Gothic Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow height="7.02" radius="3.01" width="7.02" />
+         </effect>
+      </Button>
+      <Label layoutX="423.0" layoutY="399.0" text="Password:">
+         <font>
+            <Font name="Century Gothic Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="497.0" layoutY="559.0" text="New reader?">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="button_signUp" layoutX="637.0" layoutY="551.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign Up" textAlignment="CENTER" textFill="#6b5848" underline="true">
+         <font>
+            <Font name="Century Gothic Bold" size="24.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="216.0" fitWidth="213.0" layoutX="543.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@logo.png" />
+      </ImageView>
+      <PasswordField fx:id="pf_password" layoutX="557.0" layoutY="391.0" prefHeight="47.0" prefWidth="319.0" promptText="Enter Password" style="-fx-background-color: #ebd8c4;">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </PasswordField>
+   </AnchorPane>
+</HBox>
