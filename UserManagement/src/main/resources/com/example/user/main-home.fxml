@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.user.HomeController">
+   <AnchorPane fx:id="chart_review" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7; -fx-background-radius: 0px;">
+      <AnchorPane layoutX="-1.0" layoutY="100.0" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0px;">
+         <Label fx:id="label_welcome" layoutX="131.0" layoutY="49.0" text=" Welcome" textAlignment="CENTER">
+            <font>
+               <Font name="Century Gothic Bold" size="18.0" />
+            </font>
+         </Label>
+         <FlowPane fx:id="fp_calendar" alignment="CENTER" hgap="5.0" layoutX="15.0" layoutY="251.0" maxHeight="320.0" prefHeight="300.0" prefWidth="320.0" style="-fx-border-color: #ebd8c4; -fx-border-radius: 15px; -fx-border-style: dashed; -fx-background-color: #dfc19f; -fx-background-radius: 15px;" vgap="10.0" />
+         <Button fx:id="button_preMonth" layoutX="25.0" layoutY="164.0" mnemonicParsing="false" style="-fx-background-color: #dfc19f;" text="&lt;">
+            <font>
+               <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Label layoutX="25.0" layoutY="228.0" prefHeight="23.0" prefWidth="300.0" text=" Su    Mo     Tu     We     Th     Fr    Sa" textAlignment="CENTER">
+            <font>
+               <Font name="Century Gothic Bold" size="18.0" />
+            </font>
+         </Label>
+         <Button fx:id="button_nextMonth" layoutX="295.0" layoutY="164.0" mnemonicParsing="false" style="-fx-background-color: #dfc19f;" text="&gt;">
+            <font>
+               <Font name="Century Gothic Bold" size="15.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Label fx:id="label_month" alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="166.0" prefHeight="23.0" prefWidth="238.0" text="mon year" textOverrun="CENTER_ELLIPSIS">
+            <font>
+               <Font name="Century Gothic Bold" size="18.0" />
+            </font>
+         </Label>
+      </AnchorPane>
+      <FlowPane alignment="CENTER" prefHeight="100.0" prefWidth="1300.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0px;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="100.0" prefWidth="238.0" style="-fx-background-color: #ca9665; -fx-background-radius: 0px;" text="Home">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+         </Button>
+         <Button fx:id="button_students" mnemonicParsing="false" prefHeight="100.0" prefWidth="218.0" style="-fx-background-color: #dfc19f; -fx-background-radius: 0px;" text="Students">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_issuedBook" mnemonicParsing="false" prefHeight="100.0" prefWidth="218.0" style="-fx-background-color: #dfc19f; -fx-background-radius: 0;" text="Issued Books">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_transactions" mnemonicParsing="false" prefHeight="100.0" prefWidth="218.0" style="-fx-background-color: #dfc19f; -fx-background-radius: 0;" text="Transactions">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_books" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #dfc19f; -fx-background-radius: 0;" text="Books">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_account" mnemonicParsing="false" prefHeight="100.0" prefWidth="190.0" style="-fx-background-color: #dfc19f; -fx-background-radius: 0;" text="Account">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </FlowPane>
+      <BarChart layoutX="650.0" layoutY="200.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </AnchorPane>
+</HBox>
