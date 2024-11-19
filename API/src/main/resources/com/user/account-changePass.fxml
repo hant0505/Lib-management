@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.06" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.user.ChangePassController">
+   <AnchorPane prefHeight="700.0" prefWidth="1384.0" style="-fx-background-color: #fcf4e7;">
+      <FlowPane alignment="CENTER" layoutX="-7.0" prefHeight="100.0" prefWidth="1307.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0px;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <Button fx:id="button_home" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="100.0" prefWidth="240.0" style="-fx-background-color: #dfc19f; -fx-cursor: hand; -fx-background-radius: 0px;" text="Home">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+         </Button>
+         <Button fx:id="button_student" mnemonicParsing="false" prefHeight="100.0" prefWidth="218.0" style="-fx-background-color: #dfc19f; -fx-cursor: hand; -fx-background-radius: 0px;" text="Students">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+         </Button>
+         <Button fx:id="button_issuedBooks" mnemonicParsing="false" prefHeight="100.0" prefWidth="218.0" style="-fx-background-color: #dfc19f; -fx-cursor: hand; -fx-background-radius: 0px;"  text="Issued Books">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+         </Button>
+         <Button fx:id="button_transactions" mnemonicParsing="false" prefHeight="100.0" prefWidth="218.0" style="-fx-background-color: #dfc19f; -fx-cursor: hand; -fx-background-radius: 0px;" text="Transactions">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+         </Button>
+         <Button fx:id="button_books" mnemonicParsing="false" prefHeight="100.0" prefWidth="211.0" style="-fx-background-color: #dfc19f; -fx-cursor: hand; -fx-background-radius: 0px;" text="Books">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+         </Button>
+         <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="190.0" style="-fx-background-color: #ca9665; -fx-background-radius: 0px;" text="Account">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+         </Button>
+      </FlowPane>
+      <FlowPane layoutX="-4.0" layoutY="100.0" prefHeight="600.0" prefWidth="238.0" style="-fx-background-color: #f0e9dc; -fx-background-radius: 0px;">
+         <Button fx:id="button_accInfo" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" style="-fx-background-color: transparent; -fx-background-radius: 0px;" text="Account Info">
+            <font>
+               <Font name="Century Gothic" size="18.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" style="-fx-background-color: #ca9665; -fx-background-radius: 0px;" text="Change Password">
+            <font>
+               <Font name="Century Gothic" size="18.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="DEFAULT" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_signOut" mnemonicParsing="false" prefHeight="52.0" prefWidth="242.0" style="-fx-background-color: transparent; -fx-background-radius: 0px;" text="Sign Out" textAlignment="CENTER">
+            <font>
+               <Font name="Century Gothic" size="18.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_delAccount" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" style="-fx-background-color: transparent; -fx-cursor: hand; -fx-background-radius: 0px;" text="Delete Account" textFill="#f53636">
+            <font>
+               <Font name="Century Gothic" size="18.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </FlowPane>
+      <Label layoutX="313.0" layoutY="154.0" text="Change Password">
+         <font>
+            <Font name="Century Gothic Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="269.0" text="Current Password:">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="425.0" layoutY="338.0" text="New Password:">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="400.0" text="Re Enter Password:">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="button_save" layoutX="1078.0" layoutY="502.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" style="-fx-background-color: #cfda6b;" text="Save">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <PasswordField fx:id="pf_curPass" layoutX="576.0" layoutY="262.0" prefHeight="37.0" prefWidth="340.0" promptText="Enter current password" style="-fx-background-color: #dfc19f;">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="pf_newPass" layoutX="576.0" layoutY="332.0" prefHeight="37.0" prefWidth="340.0" promptText="Enter new password" style="-fx-background-color: #dfc19f;">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="pf_reNewPass" layoutX="576.0" layoutY="393.0" prefHeight="37.0" prefWidth="340.0" promptText="Re enter new password" style="-fx-background-color: #dfc19f;">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </PasswordField>
+   </AnchorPane>
+</HBox>
