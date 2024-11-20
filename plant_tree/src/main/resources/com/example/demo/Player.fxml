@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.PlayerController">
+    <children>
+        <VBox spacing="10" alignment="CENTER" layoutX="50" layoutY="50">
+            <Label text="Player Info" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Coins:" />
+                <Label fx:id="coinsLabel" text="0" style="-fx-font-size: 16px;" />
+            </HBox>
+            <Button text="Earn 10 Coins" onAction="#handleEarnCoins" />
+            <Button text="Spend 5 Coins" onAction="#handleSpendCoins" />
+        </VBox>
+    </children>
+</AnchorPane>
+
