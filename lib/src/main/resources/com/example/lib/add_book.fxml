@@ -163,6 +163,11 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </Label>
+            <Button fx:id="button_back" layoutX="343.0" layoutY="654.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="126.0" style="-fx-background-color: #c8a70f;" text="BACK">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

@@ -3,7 +3,6 @@ package com.example.lib;
 import java.time.LocalDate;
 
 
-
 public class Transact {
     private int transactionID;
     private String isbn;

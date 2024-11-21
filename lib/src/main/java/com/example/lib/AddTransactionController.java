@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -62,6 +63,7 @@ public class AddTransactionController implements Initializable {
             quantities.add(i);
         }
         cb_quantity.setItems(quantities);
+
         dp_borrowedDate.valueProperty().addListener((_, _, newValue) -> {
             if (newValue != null) {
                 LocalDate dueDate = newValue.plusDays(30);
@@ -70,21 +72,22 @@ public class AddTransactionController implements Initializable {
         });
 
         button_submit.setOnAction(event -> {
-            if (!tf_username.getText().isEmpty() && dp_borrowedDate.getValue() != null && cb_quantity.getValue() != null ) {
+            if (!tf_username.getText().isEmpty() && dp_borrowedDate.getValue() != null && cb_quantity.getValue() != null) {
                 String username = tf_username.getText();
                 LocalDate borrowedDate = dp_borrowedDate.getValue();
                 LocalDate dueDate = borrowedDate.plusDays(30);
                 int quantity = cb_quantity.getValue();
 
-
                 if (quantity <= currentBook.getQuantity()) {
                     for (int i = 1; i <= quantity; i++) {
                         DBUtils.addTransact(currentBook, username, borrowedDate, dueDate, "Borrowed", event);
                         currentBook.setQuantity(currentBook.getQuantity() - 1);
+                        System.out.println(currentBook.getQuantity());
                         DBUtils.updateBookFromDB(currentBook, event); // Cập nhật cơ sở dữ liệu sau khi giảm số lượng
                     }
                     if (currentBook.getQuantity() == 0) currentBook.setAvailable(false);
                     showAlert("The book has been successfully borrowed.");
+                    DBUtils.changeScene(event, "bookTransact.fxml", "Book Transaction");
                 } else {
                     showAlert("You are trying to borrow more books than are available !");
                 }
@@ -92,9 +95,7 @@ public class AddTransactionController implements Initializable {
                 showAlert("Please fill all the fields !");
             }
         });
-
         button_back.setOnAction(event -> DBUtils.changeScene(event, "bookInfo.fxml", "Book Information"));
-
     }
 
     private void showBookDetails() {

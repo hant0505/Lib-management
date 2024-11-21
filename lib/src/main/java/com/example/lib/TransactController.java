@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -56,13 +57,12 @@ public class TransactController implements Initializable {
         transactTableView.setItems(transactList);
         loadData();
 
-        //changescene
-        button_books.setOnAction(event -> DBUtils.changeScene(event,"bookInfo.fxml", "Book Information"));
-
+        //change scene
+        button_books.setOnAction(event -> DBUtils.changeScene(event, "bookInfo.fxml", "Book Information"));
         //search transact
         searchTransact();
 
-        button_addTransaction.setOnAction(event -> DBUtils.changeScene(event,"bookInfo.fxml", "Book Information"));
+        button_addTransaction.setOnAction(event -> DBUtils.changeScene(event, "bookInfo.fxml", "Book Information"));
 
     }
 

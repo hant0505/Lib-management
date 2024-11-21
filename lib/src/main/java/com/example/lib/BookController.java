@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.control.CheckBox;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class BookController implements Initializable {
     @FXML
     private TableColumn<Book, Integer> table_bookQuantity;
     @FXML
-    private TableColumn<Book,CheckBox> table_checkBox;
+    private TableColumn<Book, CheckBox> table_checkBox;
     @FXML
     private TableColumn<Book, String> table_bookCategory;
 
@@ -52,7 +53,8 @@ public class BookController implements Initializable {
     @FXML
     private Button button_transactions;
 
-    public BookController() {}
+    public BookController() {
+    }
 
     ObservableList<Book> books = FXCollections.observableArrayList();
 
@@ -70,7 +72,7 @@ public class BookController implements Initializable {
         loadData(); //hàm cập nhật dữ liệu sau khi tải
 
         //add
-        button_addBook.setOnAction(e -> DBUtils.changeScene(e,"add_book.fxml", "Add Book"));
+        button_addBook.setOnAction(e -> DBUtils.changeScene(e, "add_book.fxml", "Add Book"));
 
         //delete
         button_deleteBook.setOnAction(_ -> deleteBook());
@@ -94,7 +96,7 @@ public class BookController implements Initializable {
         });
 
         // change scene
-        button_transactions.setOnAction(e -> DBUtils.changeScene(e,"bookTransact.fxml", "Transactions"));
+        button_transactions.setOnAction(e -> DBUtils.changeScene(e, "bookTransact.fxml", "Transactions"));
     }
 
     @FXML

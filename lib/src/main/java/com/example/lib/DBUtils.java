@@ -146,7 +146,6 @@ public class DBUtils {
 
                 preparedStatement.executeUpdate(); // Thực thi lệnh chèn giao dịch
                 System.out.println("Transaction added successfully.");
-                changeScene(event, "bookTransact.fxml", "Transaction Info"); // Chuyển cảnh sau khi thêm giao dịch thành công
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -200,7 +199,7 @@ public class DBUtils {
         String sql = "SELECT * FROM books WHERE isbn=?";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, isbn );
+            preparedStatement.setString(1, isbn);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 String title = resultSet.getString("title");

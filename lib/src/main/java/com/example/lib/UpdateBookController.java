@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,6 +30,7 @@ public class UpdateBookController implements Initializable {
         tf_bookAuthor_update.setText(book.getAuthor());
         tf_bookEdition_update.setText(Integer.toString(book.getPublishYear()));
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         button_updateBook.setOnAction(e -> {
@@ -39,20 +41,10 @@ public class UpdateBookController implements Initializable {
             currentBook.setAuthor(author);
             currentBook.setPublishYear(edition);
 
-            DBUtils.updateBookFromDB(currentBook,e);
-
-            Stage stage = (Stage) button_updateBook.getScene().getWindow();
-            if (stage != null) {
-                stage.close();
-            }
+            DBUtils.updateBookFromDB(currentBook, e);
+            DBUtils.changeScene(e, "bookInfo.fxml", "Book Information");
         });
 
     }
-
-
-
-
-
-
 }
 

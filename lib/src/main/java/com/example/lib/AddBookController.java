@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +31,8 @@ public class AddBookController implements Initializable {
     @FXML
     private TextArea ta_bookDescription;
 
+    @FXML
+    private Button button_back;
     @FXML
     private Button button_check;
     @FXML
@@ -61,6 +64,8 @@ public class AddBookController implements Initializable {
         button_check.setOnAction(_ -> checkIsbn());
 
         button_addABook.setOnAction(this::handleAddBook);
+
+        button_back.setOnAction(e -> DBUtils.changeScene(e, "bookInfo.fxml", "Book Information"));
     }
 
     // Kiểm tra ISBN
@@ -70,7 +75,6 @@ public class AddBookController implements Initializable {
             showAlert("Please enter an ISBN to check.");
             return;
         }
-
 
         Book existingBook = DBUtils.getBookByIsbn(isbn);
         if (existingBook != null) {
@@ -109,6 +113,7 @@ public class AddBookController implements Initializable {
             }
             existingBook.setQuantity(existingBook.getQuantity() + quantity);
             DBUtils.updateBookFromDB(existingBook, event);
+            DBUtils.changeScene(event, "bookInfo.fxml", "Book Information");
             showAlert("Book quantity has been updated.");
         } else {
             // ISBN chưa tồn tại, thêm sách mới
