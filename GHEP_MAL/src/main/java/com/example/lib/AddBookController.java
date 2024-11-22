@@ -129,7 +129,7 @@ public class AddBookController implements Initializable {
         int quantity = Integer.parseInt(tf_bookQuantity.getText().trim());
         String description = ta_bookDescription.getText().trim();
         /// HANT
-        String imagePath = "";  // Đặt mặc định là rỗng
+        String imagePath = null;  // Đặt mặc định là rỗng
 
         if (title.isEmpty() || author.isEmpty() || isbn.isEmpty() || category.isEmpty() || description.isEmpty()) {
             showAlert("Please fill in all the fields.");
@@ -162,16 +162,16 @@ public class AddBookController implements Initializable {
             if (booksFromAPI.isEmpty()) {
                 System.out.println("Không tìm thấy sách trong API."); /// DEBUG
                 Book newBook = new Book(isbn, title, author, publishYear, quantity, description, category, imagePath);
-                newBook.setImagePath("Not found");
+                //newBook.setImagePath("Not found");
                 // Lưu sách mới vào cơ sở dữ liệu
                 DBUtils.addBook(newBook, event);
                 showAlert("New book - no api - no data - has been added.");
             } else {
                 Book newBook = booksFromAPI.get(0);
                 System.out.println("TEST:" + newBook.getImagePath());///DEBUG: Af la ko co trong api lun
-                if (newBook.getImagePath().isEmpty()) {
-                    newBook.setImagePath("Not found");
-                }
+//                if (newBook.getImagePath().isEmpty()) {
+//                    newBook.setImagePath("Not found");
+//                }
                 DBUtils.addBook(newBook, event);
                 showAlert("New book has been added.");
             }
