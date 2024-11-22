@@ -169,9 +169,7 @@ public class AddBookController implements Initializable {
             } else {
                 Book newBook = booksFromAPI.get(0);
                 System.out.println("TEST:" + newBook.getImagePath());///DEBUG: Af la ko co trong api lun
-//                if (newBook.getImagePath().isEmpty()) {
-//                    newBook.setImagePath("Not found");
-//                }
+                newBook.setImagePath(imagePath);
                 DBUtils.addBook(newBook, event);
                 showAlert("New book has been added.");
             }
