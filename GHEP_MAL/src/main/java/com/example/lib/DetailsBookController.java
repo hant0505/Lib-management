@@ -101,7 +101,8 @@ public class DetailsBookController implements Initializable {
             ///DEBUG
             //label_category.setText("Title: " + currentBook.getTitle());
             //System.out.println("Image Path nahhhh: " + currentBook.getImagePath());
-            Image coverImage;
+            Image coverImage; //            if (!currentBook.getImagePath().equals("Not found")) {
+
             if (!currentBook.getImagePath().equals("Not found")) {
                 System.out.println("OK : " + currentBook.getImagePath()); ///DEBUG
                 // Nếu imagePath là URL từ API

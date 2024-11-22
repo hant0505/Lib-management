@@ -129,14 +129,16 @@ public class AddBookController implements Initializable {
         int quantity = Integer.parseInt(tf_bookQuantity.getText().trim());
         String description = ta_bookDescription.getText().trim();
         /// HANT
-        String imagePath = "";  // Đường dẫn ảnh (nếu có)
+        String imagePath = "";  // Đặt mặc định là rỗng
 
         if (title.isEmpty() || author.isEmpty() || isbn.isEmpty() || category.isEmpty() || description.isEmpty()) {
             showAlert("Please fill in all the fields.");
             return;
         }
         System.out.println("Ko lấy à:<<");///DEBUG
+
         Book existingBook = DBUtils.getBookByIsbn(isbn);
+
         if (existingBook != null) {
             if (quantity <= 0) {
                 showAlert("Quantity must be greater than 0.");
@@ -154,13 +156,26 @@ public class AddBookController implements Initializable {
             System.out.println("Khong co trong DATABASE"); ///DEBUG
             //Book newBook = new Book(isbn, title, author, publishYear, quantity, description, category,imagePath);
             APIclient_ggbook api = new APIclient_ggbook();
-            Book newBook = api.getBooksByISBN(isbn).get(0);
-            System.out.println("TEST:" + newBook.getImagePath());///DEBUG
-            if(newBook.getImagePath()=="") {
+            List<Book> booksFromAPI = api.getBooksByISBN(isbn);
+
+            ///Nếu rỗng KO CÓ TRONG API
+            if (booksFromAPI.isEmpty()) {
+                System.out.println("Không tìm thấy sách trong API."); /// DEBUG
+                Book newBook = new Book(isbn, title, author, publishYear, quantity, description, category, imagePath);
                 newBook.setImagePath("Not found");
+                // Lưu sách mới vào cơ sở dữ liệu
+                DBUtils.addBook(newBook, event);
+                showAlert("New book - no api - no data - has been added.");
+            } else {
+                Book newBook = booksFromAPI.get(0);
+                System.out.println("TEST:" + newBook.getImagePath());///DEBUG: Af la ko co trong api lun
+                if (newBook.getImagePath().isEmpty()) {
+                    newBook.setImagePath("Not found");
+                }
+                DBUtils.addBook(newBook, event);
+                showAlert("New book has been added.");
             }
-            DBUtils.addBook(newBook, event);
-            showAlert("New book has been added.");
+
         }
     }
 
