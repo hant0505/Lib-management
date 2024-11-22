@@ -6,6 +6,11 @@ module com.example.lib {
     requires mysql.connector.j;
     requires java.net.http;
     requires com.fasterxml.jackson.databind;
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
+
+    requires io.nayuki.qrcodegen; // QR CODE
+
 
 
     opens com.example.lib to javafx.fxml;

@@ -33,10 +33,14 @@ public class DBUtils {
                 int publishYear = resultSet.getInt("publishYear");
                 int quantity = resultSet.getInt("quantity");
                 String category = resultSet.getString("category");
+                String imagePath = resultSet.getString("imagePath");
 
                 //bookList.add(new Book(isbn, title, author, publishYear, quantity, category));
                 ///HANT
                 bookList.add(new Book(isbn,title, author, publishYear, category, quantity));
+                // 22/11
+                //bookList.add(new Book(isbn,title, author, publishYear, category, quantity,imagePath));
+
 
             }
         } catch (SQLException e) {
@@ -95,8 +99,8 @@ public class DBUtils {
     public static void addBook(Book newBook, ActionEvent event) {
 
         //String sql = "INSERT INTO books (title, author, publishYear, quantity, isbn, description, category) VALUES (?, ?, ?, ?, ?, ?, ?)";
-///HANT
-        String sql = "INSERT INTO books (title, author, publishYear, quantity, isbn, description, category) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        ///HANT
+        String sql = "INSERT INTO books (title, author, publishYear, quantity, isbn, description, category, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -108,6 +112,7 @@ public class DBUtils {
             preparedStatement.setString(5, newBook.getIsbn());
             preparedStatement.setString(6, newBook.getDescription());
             preparedStatement.setString(7, newBook.getCategory());
+            preparedStatement.setString(8, newBook.getImagePath()); /// HANT
 
             preparedStatement.executeUpdate();
 
@@ -240,8 +245,12 @@ public class DBUtils {
                 int quantity = resultSet.getInt("quantity");
                 String category = resultSet.getString("category");
                 String description = resultSet.getString("description");
+                /// Hiển thị bìa?
+                System.out.println("// Hàm getBookByIsbn// Lâys bìa nào!!");
 
-                return new Book(isbn, title, author, publishYear, quantity, description, category);
+                String imagePath = resultSet.getString("imagePath");
+
+                return new Book(isbn, title, author, publishYear, quantity, description, category,imagePath);
             }
 
         } catch (SQLException e) {
