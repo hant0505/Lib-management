@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane stylesheets="@Style.css" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7;"
+            xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Book.DetailsBookController">
+    <ScrollPane prefHeight="700.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+    <Label layoutX="96.0" layoutY="45.0" prefHeight="46.0" prefWidth="224.0" text="Book Details"
+           AnchorPane.leftAnchor="96.0" AnchorPane.topAnchor="45.0">
+        <font>
+            <Font name="Century Gothic Bold" size="36.0"/>
+        </font>
+    </Label>
+    <AnchorPane layoutX="41.0" layoutY="335.0" prefHeight="351.0" prefWidth="1219.0"
+                style="-fx-background-color: #f0e9dc; -fx-background-radius: 15px;">
+        <children>
+            <VBox layoutX="55.0" layoutY="97.0" prefHeight="240.0" prefWidth="528.0" spacing="15.0">
+                <children>
+                    <Label fx:id="label_description" lineSpacing="5.0" prefHeight="150.0" wrapText="true"
+                           text="Description">
+                        <font>
+                            <Font name="Century Gothic" size="18.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="label_category" lineSpacing="5.0" prefHeight="35.0" prefWidth="150.0"
+                           text="Category: Fiction">
+                        <font>
+                            <Font name="Century Gothic" size="18.0"/>
+                        </font>
+                    </Label>
+                </children>
+            </VBox>
+            <Label fx:id="label_quantity" layoutX="612.0" layoutY="14.0" lineSpacing="5.0" prefHeight="60.0"
+                   prefWidth="598.0" text="Quantity: ">
+                <font>
+                    <Font name="Century Gothic" size="18.0"/>
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+    <Label fx:id="label_title" layoutX="343.0" layoutY="104.0" lineSpacing="5.0" prefHeight="60.0" prefWidth="834.0"
+           text="Title: Harry Potter and the Socrerer's Stone">
+        <font>
+            <Font name="Corbel Italic" size="36.0"/>
+        </font>
+    </Label>
+    <Label fx:id="label_author" layoutX="343.0" layoutY="165.0" prefHeight="60.0" prefWidth="696.0" text="Author: ">
+        <font>
+            <Font name="Corbel Bold Italic" size="24.0"/>
+        </font>
+    </Label>
+    <Label fx:id="label_publishYear" layoutX="340.0" layoutY="225.0" lineSpacing="5.0" prefHeight="60.0"
+           prefWidth="336.0" text="Publish year:">
+        <font>
+            <Font name="Corbel Italic" size="18.0"/>
+        </font>
+    </Label>
+    <ImageView fx:id="image_coverBook" fitHeight="316.0" fitWidth="224.0" layoutX="101.0" layoutY="104.0"
+               preserveRatio="true" AnchorPane.leftAnchor="101.0" AnchorPane.topAnchor="104.0">
+        <image>
+            <Image url="@bia-sach-harry-potter-va-cai-dit-con-me-may.jpg"/>
+        </image>
+        <effect>
+            <DropShadow height="71.05" radius="42.92" spread="0.2" width="102.63"/>
+        </effect>
+    </ImageView>
+    <Button fx:id="button_close" layoutX="1121.0" layoutY="271.0" prefHeight="35.0" prefWidth="85.0"
+            style="-fx-background-color: #cfda6b;" text="Close">
+        <font>
+            <Font name="Century Gothic Bold" size="18.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Button fx:id="button_transact" layoutX="950.0" layoutY="271.0" prefHeight="35.0" prefWidth="110.0"
+            style="-fx-background-color: #cfda6b;" text="Transact">
+        <font>
+            <Font name="Century Gothic Bold" size="18.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+
+</AnchorPane>
+

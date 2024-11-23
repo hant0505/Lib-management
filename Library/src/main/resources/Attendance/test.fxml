@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Users.TestController">
+   <children>
+      <Button fx:id="button_checkIn" layoutX="129.0" layoutY="116.0" mnemonicParsing="false" text="Check-in" />
+      <Button fx:id="button_checkOut" layoutX="259.0" layoutY="116.0" mnemonicParsing="false" text="Check-out" />
+      <Button fx:id="button_show" layoutX="375.0" layoutY="187.0" mnemonicParsing="false" text="show" />
+   </children>
+</AnchorPane>

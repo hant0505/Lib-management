@@ -1,0 +1,13 @@
+
+
+.button:hover {
+    -fx-background-color: #e6b066;
+    -fx-effect: dropshadow(three-pass-box, rgb(166, 115, 85), 10, 0.5, 0, 0);
+    -fx-text-decoration: underline;
+}
+
+.button:focused {
+    -fx-border-color: #e6b066;
+    -fx-border-width: 2px;
+}
+
