@@ -3,24 +3,60 @@ package com.example.demo;
 public class Tree {
 
     private String name;
-    private int growthTime;   // Thời gian phát triển hoàn toàn
     private int currentGrowth; // MỨC cây đã phát triển
     private int reward;      // Phần thưởng nhận được khi thu hoạch
     private String imagePath; // Đường dẫn đến hình ảnh cây
+    private int waterLevel;
 
-    // Constructor
-    public Tree(String name, int growthTime, int reward, String imagePath) {
+
+    // Constructor araaaa
+//    public Tree(String name, int growthTime, int reward, String imagePath) {
+//        this.name = name;
+//        this.growthTime = growthTime;
+//        this.reward = reward;
+//        this.imagePath = imagePath;
+//        this.currentGrowth = 1;
+//    }
+
+    public Tree(String name, int currentGrowth, int waterLevel, String imagePath) {
         this.name = name;
-        this.growthTime = growthTime;
-        this.reward = reward;
+        this.currentGrowth = currentGrowth;
+        this.waterLevel = waterLevel;
         this.imagePath = imagePath;
-        this.currentGrowth = 1;
     }
 
-    public Tree(int growthTime, int reward, String imagePath) {
-        this.growthTime = growthTime;
+//    public Tree(int growthTime, int reward, String imagePath) {
+//        this.growthTime = growthTime;
+//        this.reward = reward;
+//        this.imagePath = imagePath;
+//    }
+
+//    public Tree(String name, int currentGrowth, int waterLevel, String imagePath) {
+//        this.name = name;
+//        this.currentGrowth = currentGrowth;
+//        this.waterLevel = waterLevel;
+//        this.imagePath = imagePath;
+//    }
+
+
+    public void setCurrentGrowth(int currentGrowth) {
+        this.currentGrowth = currentGrowth;
+    }
+
+    public void setReward(int reward) {
         this.reward = reward;
+    }
+
+    public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public int getWaterLevel() {
+        return waterLevel;
+    }
+
+    public void setWaterLevel(int waterLevel) {
+        this.waterLevel = waterLevel;
     }
 
     public String getName() {
@@ -32,9 +68,6 @@ public class Tree {
     }
 
     // Getter
-    public int getGrowthTime() {
-        return growthTime;
-    }
 
     public int getCurrentGrowth() {
         return currentGrowth;
@@ -62,7 +95,7 @@ public class Tree {
             if (currentGrowth == 2) {
                 imagePath = "/com/example/demo/tree_level2.png"; // Cây cấp 2
             } else if (currentGrowth == 3) {
-                reward = 20; // Phần thưởng khi cây đạt cấp trưởng thành
+                reward = 20; /// Phần thưởng khi cây đạt cấp trưởng thành
                 imagePath = "/com/example/demo/tree_mature.png"; // Cây trưởng thành
             }
         }
@@ -81,7 +114,7 @@ public class Tree {
     // Đặt lại cây về trạng thái ban đầu sau khi thu hoạch
     private void resetTree() {
         currentGrowth = 1;
-        reward = 5;  // Phần thưởng ban đầu khi cây mới trồng
+        //reward = 5;  // Phần thưởng ban đầu khi cây mới trồng
         imagePath = "/com/example/demo/tree_level1.png"; // Ảnh cây cấp 1
     }
 }

@@ -89,7 +89,9 @@ public class Game2048 {
                     if (button == null) {
                         // Nếu ô chưa có nút, thêm mới
                         button = new Button();
-                        button.setMinSize(60, 60);
+                        button.setMinSize(65, 65);
+//                        button.setMinSize(150, 150);
+//                        button.setMaxSize(150, 150);
                         gameGrid.add(button, j, i);
                     }
                     // Cập nhật giá trị và màu sắc cho Button

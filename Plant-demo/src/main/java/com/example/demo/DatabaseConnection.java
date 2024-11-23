@@ -33,10 +33,24 @@ public class DatabaseConnection {
                         + ", Password: " + resultSet.getString("password")
                     + ", Email: " + resultSet.getString("email")
                 + ", Phone: " + resultSet.getString("phone")
-                + ", Coin: " + resultSet.getString("coins")
-                + ", ngay diem danh cuoi: " + resultSet.getDate("last_attendance_date")+
-                        ", lượt tưới: " + resultSet.getString("waterCount"));
+                + ", Coin: " + resultSet.getString("coins"));
             }
+
+            ///TRUY VẤN USER_TREE
+            String Qq = "SELECT * FROM user_tree"; // Truy vấn lấy tất cả dữ liệu từ bảng users
+            Statement st = connection.createStatement();
+            ResultSet rS = st.executeQuery(Qq);
+
+            // Hiển thị kết quả truy vấn
+            while (rS.next()) {
+                System.out.println("Username: " + rS.getString("username")
+                        + ", GrowthLevel: " + rS.getString("growth_level")
+                        + ", Mức nước: " + rS.getString("water_level")
+                        + ", ngay diem danh cuoi: " + rS.getDate("last_attendance_date")
+                        + ", lượt tưới: " + rS.getString("waterCount")
+                );
+            }
+
 
         } catch (SQLException e) {
             e.printStackTrace();

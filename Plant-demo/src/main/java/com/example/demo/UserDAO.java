@@ -39,7 +39,7 @@ public class UserDAO {
 
     /// Lấy ngày điểm danh cuối cùng từ cơ sở dữ liệu
     public static Date getLastAttendanceDate(String username) {
-        String query = "SELECT last_attendance_date FROM users WHERE username = ?";
+        String query = "SELECT last_attendance_date FROM user_tree WHERE username = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, username);
@@ -55,7 +55,7 @@ public class UserDAO {
 
     // Cập nhật ngày điểm danh cuối cùng
     public static void updateLastAttendanceDate(String username, Date date) {
-        String query = "UPDATE users SET last_attendance_date = ? WHERE username = ?";
+        String query = "UPDATE user_tree SET last_attendance_date = ? WHERE username = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setDate(1, date);  // Set ngày điểm danh mới
@@ -68,7 +68,7 @@ public class UserDAO {
 
     // Lấy số lượt tưới của người dùng
     public static int getWaterCount(String username) {
-        String query = "SELECT waterCount FROM users WHERE username = ?";
+        String query = "SELECT waterCount FROM user_tree WHERE username = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, username);
@@ -82,9 +82,9 @@ public class UserDAO {
         return 0;  // Nếu không tìm thấy, trả về 0
     }
 
-    // Cập nhật số lượt tưới của người dùng
+    /// Cập nhật số lần tưới nước của người dùng
     public static void updateWaterCount(String username, int newWaterCount) {
-        String query = "UPDATE users SET waterCount = ? WHERE username = ?";
+        String query = "UPDATE user_tree SET waterCount = ? WHERE username = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, newWaterCount);
@@ -95,31 +95,31 @@ public class UserDAO {
         }
     }
 
-    public static void saveTreeState(String username, int treeStatus, int currentWaterLevel) {
-        String query = "UPDATE player_data SET tree_status = ?, current_water_level = ? WHERE username = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, treeStatus);  // Trạng thái cây (0 - chưa trồng, 1 - trồng, 2 - trưởng thành)
-            stmt.setInt(2, currentWaterLevel);  // Mức nước hiện tại
-            stmt.setString(3, username);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void saveTreeState(String username, int growthLevel, int waterLevel) {
+//        String query = "UPDATE Trees SET growth_level = ?, water_level = ? WHERE username = ?";
+//        try (Connection conn = DatabaseConnection.getConnection();
+//             PreparedStatement stmt = conn.prepareStatement(query)) {
+//            stmt.setInt(1, growthLevel);
+//            stmt.setInt(2, waterLevel);
+//            stmt.setString(3, username);
+//            stmt.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-    /// Cập nhật số lần tưới nước của người dùng
-    public static void updateWaterLevel(String username, int newWaterLevel) {
-        String query = "UPDATE user_tree SET water_level = ? WHERE username = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, newWaterLevel);  // Mức nước mới
-            stmt.setString(2, username);  // Tên người dùng
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//
+//    public static void updateWaterLevel(String username, int newWaterLevel) {
+//        String query = "UPDATE user_tree SET water_level = ? WHERE username = ?";
+//        try (Connection conn = DatabaseConnection.getConnection();
+//             PreparedStatement stmt = conn.prepareStatement(query)) {
+//            stmt.setInt(1, newWaterLevel);  // Mức nước mới
+//            stmt.setString(2, username);  // Tên người dùng
+//            stmt.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     /// Cập nhật trạng thái cây của người dùng
     public static void updateTreeStatus(String username, int growthLevel, int waterLevel) {
@@ -134,6 +134,8 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+
 
     // Lấy trạng thái cây của người dùng
     /// YEA MỨC CÂY VÀ MỨC NƯỚC
@@ -153,8 +155,4 @@ public class UserDAO {
         }
         return null;
     }
-
-
-
-
 }
