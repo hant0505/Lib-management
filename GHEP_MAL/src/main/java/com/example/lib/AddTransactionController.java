@@ -98,6 +98,7 @@ public class AddTransactionController implements Initializable {
     }
 
     private void showBookDetails() {
+        System.out.println("tittle:" + currentBook.getTitle());
         if (currentBook != null) {
             label_title.setText(currentBook.getTitle());
             label_author.setText(currentBook.getAuthor());
@@ -106,8 +107,22 @@ public class AddTransactionController implements Initializable {
             label_publishYear.setText("Publish Year: " + currentBook.getPublishYear());
 
             Image coverImage;
+
+            /// LẤY IMAGE
+            String isbn = currentBook.getIsbn();
+            currentBook = DBUtils.getBookByIsbn(isbn);
+
+            System.out.println("cur" + currentBook.getImagePath());
             if (currentBook.getImagePath() != null) {
-                coverImage = new Image("file:" + currentBook.getImagePath());
+                System.out.println("co kooooo");
+                if (currentBook.getImagePath().startsWith("http")) {
+                    System.out.println("URL: " + currentBook.getImagePath());
+
+                    coverImage = new Image(currentBook.getImagePath(), true); // true để tải không đồng bộ
+                } else {
+                    // Nếu imagePath là đường dẫn file
+                    coverImage = new Image("file:" + currentBook.getImagePath());
+                }
             } else {
                 coverImage = new Image(getClass().getResource("/com/example/lib/bia-sach-harry-potter-va-cai-dit-con-me-may.jpg").toExternalForm());
             }
