@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane fx:id="rootPane" prefWidth="700.0" prefHeight="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.demo.Game2048">
     <children>
-        <GridPane fx:id="gameGrid" layoutX="50.0" layoutY="50.0" />
-        <Label fx:id="statusLabel" layoutX="148.0" layoutY="10.0" text="Status:" />
-        <Label fx:id="scoreLabel" layoutX="50.0" layoutY="10.0" text="Score: 0" />
-        <!-- Thêm Label cho chữ LOSER -->
-        <Label fx:id="loserLabel" text="LOSER" layoutX="200.0" layoutY="200.0"
-               style="-fx-font-size: 60px; -fx-font-weight: bold; -fx-text-fill: red;" visible="false"/>
+        <!-- Các phần tử bên ngoài -->
+        <VBox alignment="CENTER" prefHeight="700.0" prefWidth="700.0" spacing="20" style="-fx-background-color: #a9bf7d;">
+            <!-- Hiển thị điểm số -->
+            <Label fx:id="scoreLabel" style="-fx-font-size: 24px; -fx-text-fill: black;" text="Score: 0" />
+            <Label fx:id="statusLabel" layoutX="148.0" layoutY="10.0" text="Status:" />
+            <Label fx:id="loserLabel" text="LOSER" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: red;" visible="false"/>
+
+            <!-- Lưới game -->
+            <GridPane fx:id="gameGrid" layoutX="50.0" layoutY="50.0" prefWidth="600.0" prefHeight="600.0">
+                <!-- Các ô trong GridPane (Tạo các ô vuông cho game 2048) -->
+            </GridPane>
+
+            <!-- Thông báo 'LOSER' -->
+        </VBox>
     </children>
 </AnchorPane>

@@ -79,7 +79,7 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return 0;  // Nếu không tìm thấy, trả về 0
+        return 0;
     }
 
     /// Cập nhật số lần tưới nước của người dùng
@@ -95,32 +95,6 @@ public class UserDAO {
         }
     }
 
-//    public static void saveTreeState(String username, int growthLevel, int waterLevel) {
-//        String query = "UPDATE Trees SET growth_level = ?, water_level = ? WHERE username = ?";
-//        try (Connection conn = DatabaseConnection.getConnection();
-//             PreparedStatement stmt = conn.prepareStatement(query)) {
-//            stmt.setInt(1, growthLevel);
-//            stmt.setInt(2, waterLevel);
-//            stmt.setString(3, username);
-//            stmt.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//
-//    public static void updateWaterLevel(String username, int newWaterLevel) {
-//        String query = "UPDATE user_tree SET water_level = ? WHERE username = ?";
-//        try (Connection conn = DatabaseConnection.getConnection();
-//             PreparedStatement stmt = conn.prepareStatement(query)) {
-//            stmt.setInt(1, newWaterLevel);  // Mức nước mới
-//            stmt.setString(2, username);  // Tên người dùng
-//            stmt.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     /// Cập nhật trạng thái cây của người dùng
     public static void updateTreeStatus(String username, int growthLevel, int waterLevel) {
         String query = "UPDATE user_tree SET growth_level = ?, water_level = ? WHERE username = ?";
@@ -134,8 +108,6 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
-
-
 
     // Lấy trạng thái cây của người dùng
     /// YEA MỨC CÂY VÀ MỨC NƯỚC

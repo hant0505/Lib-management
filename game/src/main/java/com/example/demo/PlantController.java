@@ -350,11 +350,10 @@ public class PlantController {
         try {
             // Tải FXML của game 2048
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GAME2048.fxml"));
-            loader.setController(this); // Đảm bảo controller đã được gán
             AnchorPane game2048Layout = loader.load();
 
             // Tạo Scene cho game 2048
-            Scene game2048Scene = new Scene(game2048Layout, 400, 450);
+            Scene game2048Scene = new Scene(game2048Layout, 700, 700);
 
             // Lấy Stage hiện tại và đổi scene
             Stage stage = (Stage) goTo2048Button.getScene().getWindow();

@@ -33,9 +33,7 @@ public class DatabaseConnection {
                         + ", Password: " + resultSet.getString("password")
                     + ", Email: " + resultSet.getString("email")
                 + ", Phone: " + resultSet.getString("phone")
-                + ", Coin: " + resultSet.getString("coins")
-                + ", ngay diem danh cuoi: " + resultSet.getDate("last_attendance_date")+
-                        ", lượt tưới: " + resultSet.getString("waterCount"));
+                + ", Coin: " + resultSet.getString("coins"));
             }
 
             ///TRUY VẤN USER_TREE
@@ -45,10 +43,11 @@ public class DatabaseConnection {
 
             // Hiển thị kết quả truy vấn
             while (rS.next()) {
-                System.out.println("User ID: " + rS.getString("id")
-                        + ", Username: " + rS.getString("username")
-                        + ", Password: " + rS.getString("password")
-                        + ", Email: " + rS.getString("email")
+                System.out.println("Username: " + rS.getString("username")
+                        + ", GrowthLevel: " + rS.getString("growth_level")
+                        + ", Mức nước: " + rS.getString("water_level")
+                        + ", ngay diem danh cuoi: " + rS.getDate("last_attendance_date")
+                        + ", lượt tưới: " + rS.getString("waterCount")
                 );
             }
 

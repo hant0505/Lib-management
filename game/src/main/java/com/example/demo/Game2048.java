@@ -28,10 +28,8 @@ public class Game2048 {
     private GridPane gameGrid;
     @FXML
     private Label scoreLabel;
-
     @FXML
     private Label statusLabel;
-
     @FXML
     private AnchorPane rootPane; // Thêm phần này để truy cập cảnh
     @FXML
@@ -47,9 +45,6 @@ public class Game2048 {
 
     @FXML
     public void initialize() {
-
-
-
         gameGrid.setHgap(5.7);  // Tạo khoảng cách ngang giữa các ô
         gameGrid.setVgap(5.7);  // Tạo khoảng cách dọc giữa các ô
         addRandomDigit(2);
@@ -94,7 +89,9 @@ public class Game2048 {
                     if (button == null) {
                         // Nếu ô chưa có nút, thêm mới
                         button = new Button();
-                        button.setMinSize(60, 60);
+                        button.setMinSize(65, 65);
+//                        button.setMinSize(150, 150);
+//                        button.setMaxSize(150, 150);
                         gameGrid.add(button, j, i);
                     }
                     // Cập nhật giá trị và màu sắc cho Button
@@ -118,11 +115,7 @@ public class Game2048 {
                 showLoserMessage();
                 statusLabel.setText("Loser");
             } else {
-                if (statusLabel == null) {
-                    System.out.println("statusLabel is null");
-                } else {
-                    statusLabel.setText(""); // Reset trạng thái nếu game chưa kết thúc
-                }
+                statusLabel.setText(""); // Reset trạng thái nếu game chưa kết thúc
             }
         });
     }
