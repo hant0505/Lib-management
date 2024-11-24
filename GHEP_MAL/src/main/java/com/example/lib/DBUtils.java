@@ -1,5 +1,6 @@
 package com.example.lib;
 
+import io.nayuki.qrcodegen.QrCode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +11,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
@@ -37,7 +41,7 @@ public class DBUtils {
 
                 //bookList.add(new Book(isbn, title, author, publishYear, quantity, category));
                 ///HANT
-                bookList.add(new Book(isbn,title, author, publishYear, category, quantity));
+                bookList.add(new Book(isbn, title, author, publishYear, category, quantity));
                 // 22/11
                 //bookList.add(new Book(isbn,title, author, publishYear, category, quantity,imagePath));
 
@@ -146,9 +150,9 @@ public class DBUtils {
                 System.out.println("User does not exist in the database.");
                 return;
             }
-
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, book.getIsbn()); // Đặt giá trị ISBN từ đối tượng Book
+            ///QR
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                preparedStatement.setString(1, book.getIsbn());
                 preparedStatement.setString(2, username); // Đặt giá trị username
                 preparedStatement.setString(3, book.getTitle()); // Đặt tiêu đề sách từ đối tượng Book
                 preparedStatement.setDate(4, Date.valueOf(borrowedDate)); // Ngày mượn sách
@@ -157,10 +161,52 @@ public class DBUtils {
 
                 preparedStatement.executeUpdate(); // Thực thi lệnh chèn giao dịch
                 System.out.println("Transaction added successfully.");
-                changeScene(event, "bookTransact.fxml", "Transaction Info"); // Chuyển cảnh sau khi thêm giao dịch thành công
+
+                ///HANT : ĐƯA QR PATH VÀO DATABASE
+                // Lấy ID giao dịch vừa được tạo
+                ResultSet rs = preparedStatement.getGeneratedKeys();
+                int transactionID = -1;
+                if (rs.next()) {
+                    transactionID = rs.getInt(1); // Lấy transactionID
+                }
+
+
+                if (transactionID != -1) {
+                    // Tạo mã QR từ thông tin giao dịch
+                    String bookTitle = book.getTitle().replace(" ", "+");
+                    String serverIP = ServerIP.getServerIP();
+                    System.out.println("Sever có IP là :" + serverIP); /// debug
+                    String qrData = "http://" + serverIP + ":8080/qrs?data=" + transactionID + ";" + username + ";" + bookTitle + ";" + borrowedDate + ";" + dueDate + ";" + status;
+                    QrCode qr = QrCode.encodeText(qrData, QrCode.Ecc.MEDIUM);
+                    BufferedImage img = QR_Image.toImage(qr, 4, 10);
+
+                    //Tạo thư mục qrs ngay trong project - lưu qr trong đó
+                    String qrPath = "qrs/trans_" + transactionID + ".png";
+                    File qrFile = new File(qrPath);
+                    qrFile.getParentFile().mkdirs();  // Tạo thư mục nếu chưa có
+                    ImageIO.write(img, "PNG", qrFile);
+
+                    // Cập nhật qrCodePath vào bảng transactions
+                    System.out.println("QR code written successfully.");
+                    String updateSQL = "UPDATE transactions SET qrCodePath = ? WHERE transactionID = ?";
+                    try (PreparedStatement updateStmt = connection.prepareStatement(updateSQL)) {
+                        updateStmt.setString(1, qrPath);
+                        updateStmt.setInt(2, transactionID);
+                        updateStmt.executeUpdate();
+                    }
+
+                    System.out.println("Transaction created and QR code generated successfully.");
+                } else {
+                    System.out.println("Failed to generate transaction ID.");
+                }
+
+
+                changeScene(event, "bookTransact.fxml", "Transaction Info");
 
             } catch (SQLException e) {
                 e.printStackTrace();
+            } catch (IOException e) {
+                throw new RuntimeException(e); // ImageIO.write(img, "PNG", qrFile);
             }
 
         } catch (SQLException e) {
@@ -211,7 +257,7 @@ public class DBUtils {
         String sql = "SELECT * FROM books WHERE isbn=?";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, isbn );
+            preparedStatement.setString(1, isbn);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 String title = resultSet.getString("title");
@@ -250,7 +296,7 @@ public class DBUtils {
 
                 String imagePath = resultSet.getString("imagePath");
 
-                return new Book(isbn, title, author, publishYear, quantity, description, category,imagePath);
+                return new Book(isbn, title, author, publishYear, quantity, description, category, imagePath);
             }
 
         } catch (SQLException e) {
@@ -260,4 +306,28 @@ public class DBUtils {
         return null;
     }
 
+    ///HANT
+    public static void updateTransactionStatus(int transactionID) {
+        // Lấy ngày hiện tại
+        LocalDate returnedDate = LocalDate.now();
+
+        // cập nhật trạng thái và ngày trả sách
+        String sql = "UPDATE transactions SET status = 'Returned', returnedDate = ? WHERE transactionID = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setObject(1, returnedDate);
+            preparedStatement.setInt(2, transactionID);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Trạng thái giao dịch đãcập nhật thành 'Returned' và ngày trả sách là " + returnedDate);
+            } else {
+                System.out.println("Không tìm thấy giao dịch để cập nhật.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Lỗi khi cập nhật trạng thái giao dịch: " + e.getMessage());
+        }
+    }
 }

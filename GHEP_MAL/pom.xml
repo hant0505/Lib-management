@@ -76,6 +76,12 @@
       <artifactId>qrcodegen</artifactId>
       <version>1.7.0</version>
     </dependency>
+  <!-- org.java-websocket-->
+    <dependency>
+      <groupId>org.java-websocket</groupId>
+      <artifactId>Java-WebSocket</artifactId>
+      <version>1.5.3</version>
+    </dependency>
   </dependencies>
 
   <build>

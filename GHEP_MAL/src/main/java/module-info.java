@@ -9,7 +9,8 @@ module com.example.lib {
     requires com.google.zxing;
     requires com.google.zxing.javase;
 
-    requires io.nayuki.qrcodegen; // QR CODE
+    requires io.nayuki.qrcodegen;
+    requires jdk.httpserver; // QR CODE
 
 
 
