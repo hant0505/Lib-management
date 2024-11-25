@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baef89be-0f8a-4930-994e-8c680403f3cd" name="Changes" comment="" />
+    <list default="true" id="baef89be-0f8a-4930-994e-8c680403f3cd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Plant_demo_logic/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Plant_demo_logic/.idea/compiler.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +57,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/asus/Documents/GitHub/test/game_2311",
+    "last_opened_file_path": "C:/Users/asus/Desktop/OOP/oop-main/demo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -207,7 +209,7 @@
       <workItem from="1732326011000" duration="910000" />
       <workItem from="1732327387051" duration="312000" />
       <workItem from="1732328577986" duration="4520000" />
-      <workItem from="1732461274863" duration="2254000" />
+      <workItem from="1732461274863" duration="15399000" />
     </task>
     <servers />
   </component>

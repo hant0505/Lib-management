@@ -21,7 +21,6 @@ public class PlantController {
     @FXML
     private Button plantTreeButton;
 
-    /// Nút điểm danh
     @FXML
     private Button pointAttendanceButton;
 
@@ -41,17 +40,19 @@ public class PlantController {
     // Hiển thị số lượt tưới còn lại
     @FXML
     private Label waterCountLabel;
+
     // Biến lưu trữ số lượt tưới cây
     private int waterCount = 0;
-    // Bạn có thể đặt số lượng tối đa lý thuyết nếu cần
     private int maxWaterCount = 100;
 
     /// WATERLEVEL
     private int currentWaterLevel = 0;
+
     /// Lưu cây vào đây để có thể truy cập lại
     private Tree plantedTree = null;
 
     private int treeCost = 5;  // Chi phí để trồng cây
+    private int coins;
 
     /// ->PROGRESSBAR MAX 100
     private int waterNeeded = 100;
@@ -68,28 +69,11 @@ public class PlantController {
         // Tải số xu từ cơ sở dữ liệu
         loadCoins();
 
-        // /Tải trạng thái cây từ cơ sở dữ liệu
-        plantedTree = getTreeState(username);
-        currentWaterLevel = plantedTree.getWaterLevel();
+//        // /Tải trạng thái cây từ cơ sở dữ liệu
+//        plantedTree = getTreeState(username);
+//        currentWaterLevel = plantedTree.getWaterLevel();
+        loadTreeState();
 
-//        if(plantedTree.isMature()){
-//            plantedTree = null;
-//        }
-        if(plantedTree.getCurrentGrowth()==0) {
-            plantedTree = null ;
-        }
-
-        // Nếu đã trồng cây trước đó
-        if (plantedTree != null) {
-            // Hiển thị cây lên giao diện
-            updateTreeContainer();
-
-
-            /// Vô hiệu hóa nút "Plant a Tree" nếu cây chưa trưởng thành
-            if (!plantedTree.isMature()) {
-                plantTreeButton.setDisable(true);
-            }
-        }
         ///So luot tuoi dc cay
         loadWaterCount();
 
@@ -97,30 +81,44 @@ public class PlantController {
         checkAttendanceForWatering();
     }
 
-    private void loadCoins() {
-        int coins = UserDAO.getCoins(username);  // Lấy số xu từ cơ sở dữ liệu thông qua UserDAO
-        updateCoinsLabel(coins);  // Gọi phương thức cập nhật label với số xu lấy được
+
+    private void loadTreeState() {
+        plantedTree = getTreeState(username);
+        currentWaterLevel = plantedTree.getWaterLevel();
+        if(plantedTree.getCurrentGrowth()==0) {
+            plantedTree = null ;
+        }
+
+        /// Nếu đã trồng cây
+        if (plantedTree != null) {
+            // Hiển thị cây lên giao diện
+            updateTreeContainer();
+            // Vô hiệu hóa nút "Plant a Tree" nếu cây chưa trưởng thành
+            if (!plantedTree.isMature()) {
+                plantTreeButton.setDisable(true);
+            }
+        }
     }
 
+    private void loadCoins() {
+        coins = UserDAO.getCoins(username);  // coins DATA
+        updateCoinsLabel();  // update label
+    }
 
-    /// Cập nhật label số xu
-    private void updateCoinsLabel(int coins) {
-        // Hiển thị số xu lên label
+    private void loadWaterCount() {
+        waterCount = UserDAO.getWaterCount(username);  //water DATA
+        updateWaterCountLabel();  // update
+    }
+
+    private void updateCoinsLabel() {
         coinsLabel.setText("Coins: " + coins);
-
-        // Cập nhật số xu vào cơ sở dữ liệu nếu cần
         UserDAO.updateCoins(username, coins);
     }
 
 
-    private void loadWaterCount() {
-        waterCount = getWaterCount(username);  /// Lấy số lượt tưới từ cơ sở dữ liệu
-        updateWaterCountLabel();  // Cập nhật lại label để hiển thị
-    }
-
     private void updateWaterCountLabel() {
         waterCountLabel.setText("Watered: " + waterCount );
-        updateWaterCount(username, waterCount);  /// Cập nhật số lượt tưới vào cơ sở dữ liệu
+        UserDAO.updateWaterCount(username, waterCount);  /// Cập nhật số lượt tưới vào cơ sở dữ liệu
     }
 
     private void updateTreeContainer() {
@@ -133,25 +131,29 @@ public class PlantController {
             Label treeLabel = new Label(treeStatus);
 
             // Tạo ImageView và đặt hình ảnh cây theo cấp độ hiện tại
-            Image treeImage;
-            if (plantedTree.getCurrentGrowth() == 1) {
-                treeImage = new Image(getClass().getResource("/com/example/demo/tree_level1.png").toExternalForm());
-            } else if (plantedTree.getCurrentGrowth() == 2) {
-                treeImage = new Image(getClass().getResource("/com/example/demo/tree_level2.png").toExternalForm());
-            } else {
-                treeImage = new Image(getClass().getResource("/com/example/demo/tree_level3.png").toExternalForm());
-            }
+            Image treeImage = new Image(getClass().getResource(plantedTree.getImagePath()).toExternalForm());
+//            if (plantedTree.getCurrentGrowth() == 1) {
+//                treeImage = new Image(getClass().getResource("/com/example/demo/tree_level1.png").toExternalForm());
+//            } else if (plantedTree.getCurrentGrowth() == 2) {
+//                treeImage = new Image(getClass().getResource("/com/example/demo/tree_level2.png").toExternalForm());
+//            } else {
+//                treeImage = new Image(getClass().getResource("/com/example/demo/tree_level3.png").toExternalForm());
+//            }
 
             ImageView treeView = new ImageView(treeImage);
             treeView.setFitWidth(100);
             treeView.setFitHeight(100);
 
             /// Cập nhật ProgressBar (luôn hiển thị, nhưng giá trị = 0 khi cây trưởng thành)
-            if (plantedTree.isMature()) {
-                waterProgressBar.setProgress(0);
-                waterProgressBar.setVisible(true);  // Tiếp tục hiển thị ProgressBar dù cây đã trưởng thành
-            } else {
-                waterProgressBar.setProgress((double) currentWaterLevel / waterNeeded);
+//            if (plantedTree.isMature()) {
+//                waterProgressBar.setProgress(0);
+//                //waterProgressBar.setVisible(true);  // Tiếp tục hiển thị ProgressBar dù cây đã trưởng thành
+//            } else {
+//                waterProgressBar.setProgress((double) currentWaterLevel / waterNeeded);
+//            }
+            ///Nếu chưa mature
+            if (!plantedTree.isMature()) {
+                waterProgressBar.setProgress((double) currentWaterLevel / 100);
             }
 
             // Thêm các thành phần vào giao diện
@@ -189,7 +191,7 @@ public class PlantController {
     }
 
 
-    /// Hàm này sẽ gọi khi người chơi nhấn nút "Điểm danh"
+    /// "Điểm danh"
     @FXML
     private void handlePointAttendance() {
         LocalDate currentDate = LocalDate.now();
@@ -198,38 +200,36 @@ public class PlantController {
         waterCount = Math.min(waterCount + 1, maxWaterCount);
 
         // Cập nhật cơ sở dữ liệu
-        updateWaterCount(username, waterCount); /// updatewwaterCOuntLabel
+        updateWaterCountLabel();/// updatewwaterCountLabel
         updateLastAttendanceDate(username, Date.valueOf(currentDate));
 
-        // Cập nhật giao diện
-        updateWaterCountLabel();
-
-        // Vô hiệu hóa nút "Điểm danh" sau khi nhấn
+        // Vô hiệu hóa nút "Điểm danh"
         pointAttendanceButton.setDisable(true);
 
         System.out.println("Attendance rewarded! You got +1 watering chance.");
     }
+//
+//    ///
+//    public boolean isGrowable() {
+//        return !plantedTree.isMature() && plantedTree!=null;
+//    }
 
-    ///
-    public boolean isGrowable() {
-        return !plantedTree.isMature() && plantedTree!=null;
-    }
-
-    // Xử lý sự kiện khi nhấn nút "Plant a Tree"
     @FXML
     private void handlePlantTree() {
         if (plantedTree != null && !plantedTree.isMature()) {
             System.out.println("A tree is already planted and growing. Wait until it matures.");
-            return;  // Không cho phép trồng cây mới khi cây cũ chưa trưởng thành
+            return;  // not allow new plant khi cây cũ chưa trưởng thành
         }
 
-        int coins = getCoins(username);
+        //coins = getCoins(username);
         if (coins >= treeCost) {
             coins -= treeCost;
-            updateCoinsLabel(coins);
+            updateCoinsLabel();
 
             // Tạo cây mới với phần thưởng và thời gian phát triển khác nhau
-            Tree tree = new Tree("Tree", 1, 0, "/com/example/demo/tree_level1.png");
+            //Tree tree = new Tree("Tree", 1, 0, "/com/example/demo/tree_level1.png");
+            Tree tree = new Tree( 1, 0, "/com/example/demo/tree_level1.png");
+
             Label treeLabel = new Label("Tree growing...");
 
             Image image = new Image(getClass().getResource("/com/example/demo/tree_level1.png").toExternalForm());
@@ -274,8 +274,7 @@ public class PlantController {
             waterCount--;
             ///LABEL
             updateWaterCountLabel();  // Cập nhật lại label hiển thị số lượt tưới
-            /// DATA - Ở  updateWaterCountLabel đã đưa lên r
-            //updateWaterCount(username,waterCount);
+
             currentWaterLevel += 10;
             waterProgressBar.setProgress((double) currentWaterLevel / waterNeeded);
 
@@ -300,7 +299,7 @@ public class PlantController {
             ///UPDATE
             updateTreeStatus(username,plantedTree.getCurrentGrowth(),currentWaterLevel);
 
-            ///Nếu ko còn lượt tưới , vô hiệu hóa nút "Water
+            ///Nếu ko còn lượt tưới , vô hiệu hóa nút Water
             if (waterCount == 0) {
                 waterButton.setDisable(true); // hết lượt thì cook
             }
@@ -317,14 +316,14 @@ public class PlantController {
     // Xử lý sự kiện khi nhấn nút "Harvest Tree"
     @FXML
     private void handleHarvestTree() {
-        int coins = getCoins(username);
+        //int coins = getCoins(username);
 
         if (plantedTree != null && plantedTree.isMature()) {
             int harvestReward = plantedTree.harvest();
             //System.out.println("Nhaajn thuong hong: " + harvestReward+ "level :" + plantedTree.getCurrentGrowth());
             coins += harvestReward;
             /// Nhận xuuuuuu
-            updateCoinsLabel(coins);/// lên cơ sở dữ liệu
+            updateCoinsLabel();/// lên cơ sở dữ liệu
             //updateCoins(username,coins);
             ///NHẬN XU NÈ
 
@@ -344,15 +343,14 @@ public class PlantController {
         }
     }
 
-    // Phương thức chuyển sang scene 2048
     @FXML
     private void handleGoTo2048() {
         try {
-            // Tải FXML của game 2048
+            // Tải FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GAME2048.fxml"));
             AnchorPane game2048Layout = loader.load();
 
-            // Tạo Scene cho game 2048
+            // Tạo Scene
             Scene game2048Scene = new Scene(game2048Layout, 700, 700);
 
             // Lấy Stage hiện tại và đổi scene
@@ -362,6 +360,4 @@ public class PlantController {
             e.printStackTrace();
         }
     }
-
-
 }

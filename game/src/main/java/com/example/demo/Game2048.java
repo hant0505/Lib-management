@@ -24,6 +24,7 @@ public class Game2048 {
     private int[][] board;
     private Random random;
 
+
     @FXML
     private GridPane gameGrid;
     @FXML
@@ -82,21 +83,21 @@ public class Game2048 {
     private void updateBoard() {
         // Đảm bảo việc cập nhật giao diện diễn ra trên luồng chính của JavaFX
         Platform.runLater(() -> {
-            for (int i = 0; i < SIZE; i++) {
-                for (int j = 0; j < SIZE; j++) {
-                    // Tìm nút Button hiện tại trong GridPane
-                    Button button = (Button) getNodeFromGrid(gameGrid, j, i);
-                    if (button == null) {
-                        // Nếu ô chưa có nút, thêm mới
-                        button = new Button();
-                        button.setMinSize(65, 65);
-//                        button.setMinSize(150, 150);
-//                        button.setMaxSize(150, 150);
-                        gameGrid.add(button, j, i);
-                    }
-                    // Cập nhật giá trị và màu sắc cho Button
-                    button.setText(board[i][j] == 0 ? "" : String.valueOf(board[i][j]));
-                    button.setStyle(getColorForValue(board[i][j]));
+//            for (int i = 0; i < SIZE; i++) {
+//                for (int j = 0; j < SIZE; j++) {
+//                    // Tìm nút Button hiện tại trong GridPane
+//                    Button button = (Button) getNodeFromGrid(gameGrid, j, i);
+//                    if (button == null) {
+//                        // Nếu ô chưa có nút, thêm mới
+//                        button = new Button();
+//                        button.setMinSize(65, 65);
+////                        button.setMinSize(150, 150);
+////                        button.setMaxSize(150, 150);
+//                        gameGrid.add(button, j, i);
+//                    }
+//                    // Cập nhật giá trị và màu sắc cho Button
+//                    button.setText(board[i][j] == 0 ? "" : String.valueOf(board[i][j]));
+//                    button.setStyle(getColorForValue(board[i][j]));
 
                     // Thêm animation nếu cần
 //                    if (board[i][j] != 0) {
@@ -107,8 +108,23 @@ public class Game2048 {
 //                        scaleTransition.setToY(1.0);
 //                        scaleTransition.play();
 //                    }
+//                }
+//            }
+
+            ///CHANGE
+            gameGrid.getChildren().clear();  // Xóa các phần tử cũ
+            for (int i = 0; i < SIZE; i++) {
+                for (int j = 0; j < SIZE; j++) {
+                    Button button = new Button();
+                    button.setText(board[i][j] == 0 ? "" : String.valueOf(board[i][j]));
+                    button.setMinSize(60, 60);
+                    button.setStyle(getColorForValue(board[i][j])); // Thêm màu sắc
+
+                    // Đặt các button vào vị trí trong GridPane với khoảng cách đã tạo
+                    gameGrid.add(button, j, i);
                 }
             }
+            ///
             scoreLabel.setText("Score: " + score);
             if (isGameOver()) {
                 //s_howLoserMessage();

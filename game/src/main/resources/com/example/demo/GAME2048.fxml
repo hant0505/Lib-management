@@ -5,18 +5,17 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="rootPane" prefWidth="700.0" prefHeight="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.demo.Game2048">
+<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Game2048">
     <children>
         <!-- Các phần tử bên ngoài -->
         <VBox alignment="CENTER" prefHeight="700.0" prefWidth="700.0" spacing="20" style="-fx-background-color: #a9bf7d;">
             <!-- Hiển thị điểm số -->
             <Label fx:id="scoreLabel" style="-fx-font-size: 24px; -fx-text-fill: black;" text="Score: 0" />
             <Label fx:id="statusLabel" layoutX="148.0" layoutY="10.0" text="Status:" />
-            <Label fx:id="loserLabel" text="LOSER" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: red;" visible="false"/>
+            <Label fx:id="loserLabel" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: red;" text="LOSER" visible="false" />
 
             <!-- Lưới game -->
-            <GridPane fx:id="gameGrid" layoutX="50.0" layoutY="50.0" prefWidth="600.0" prefHeight="600.0">
+            <GridPane fx:id="gameGrid" alignment="TOP_CENTER" layoutX="50.0" layoutY="50.0" prefHeight="600.0" prefWidth="600.0">
                 <!-- Các ô trong GridPane (Tạo các ô vuông cho game 2048) -->
             </GridPane>
 

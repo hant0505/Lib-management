@@ -2,34 +2,11 @@ package com.example.demo;
 
 public class Tree {
 
-    private String name;
-    private int currentGrowth; // MỨC cây đã phát triển
-    private int reward;      // Phần thưởng nhận được khi thu hoạch
-    private String imagePath; // Đường dẫn đến hình ảnh cây
+    private int currentGrowth;
+    private int reward;
+    private String imagePath;
     private int waterLevel;
 
-
-    // Constructor araaaa
-//    public Tree(String name, int growthTime, int reward, String imagePath) {
-//        this.name = name;
-//        this.growthTime = growthTime;
-//        this.reward = reward;
-//        this.imagePath = imagePath;
-//        this.currentGrowth = 1;
-//    }
-
-    public Tree(String name, int currentGrowth, int waterLevel, String imagePath) {
-        this.name = name;
-        this.currentGrowth = currentGrowth;
-        this.waterLevel = waterLevel;
-        this.imagePath = imagePath;
-    }
-
-//    public Tree(int growthTime, int reward, String imagePath) {
-//        this.growthTime = growthTime;
-//        this.reward = reward;
-//        this.imagePath = imagePath;
-//    }
 
 //    public Tree(String name, int currentGrowth, int waterLevel, String imagePath) {
 //        this.name = name;
@@ -37,6 +14,12 @@ public class Tree {
 //        this.waterLevel = waterLevel;
 //        this.imagePath = imagePath;
 //    }
+
+    public Tree(int currentGrowth, int waterLevel, String imagePath) {
+        this.currentGrowth = currentGrowth;
+        this.waterLevel = waterLevel;
+        this.imagePath = imagePath;
+    }
 
 
     public void setCurrentGrowth(int currentGrowth) {
@@ -59,13 +42,13 @@ public class Tree {
         this.waterLevel = waterLevel;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     // Getter
 
@@ -78,7 +61,7 @@ public class Tree {
     }
 
     public String getImagePath() {
-        return imagePath;
+        return  String.format("/com/example/demo/tree_level%d.png", currentGrowth);//
     }
 
     // Kiểm tra xem cây đã trưởng thành chưa
@@ -100,6 +83,7 @@ public class Tree {
             }
         }
     }
+
 
     // Thu hoạch cây
     public int harvest() {
