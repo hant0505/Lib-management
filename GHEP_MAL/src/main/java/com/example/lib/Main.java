@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import javafx.stage.StageStyle;
 
 import java.net.URL;
@@ -17,20 +16,13 @@ import java.util.logging.Logger;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sign-in.fxml")));
-        stage.setTitle("Library");
-        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("logo.png"))));
+        Parent root = FXMLLoader.load(getClass().getResource("bookInfo.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Book Info");
         stage.setResizable(false);
-        stage.setScene(new Scene(root));
         stage.show();
     }
-//        Parent root = FXMLLoader.load(getClass().getResource("bookInfo.fxml"));
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.setTitle("Book Info");
-//        stage.setResizable(false);
-//        stage.show();
-//    }
 
 
     public static void main(String[] args) {
