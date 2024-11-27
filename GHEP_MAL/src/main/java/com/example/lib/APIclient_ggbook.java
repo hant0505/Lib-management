@@ -116,7 +116,7 @@ public class APIclient_ggbook extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Chạy ứng dụng JavaFX
-        String isbn = "9780439139595"; // Ví dụ ISBN của một sách
+        String isbn = "9780747542155"; // Ví dụ ISBN của một sách
         // 9786041219212 9786041198845 9780439139595
         List<Book> books = getBooksByISBN(isbn);
         books.forEach(book -> {
