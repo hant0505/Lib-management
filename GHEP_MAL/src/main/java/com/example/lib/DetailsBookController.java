@@ -37,6 +37,19 @@ public class DetailsBookController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.currentBook = BookSession.getSelectedBook();
+
+        /// LẤY IMAGE
+        String isbn = currentBook.getIsbn();
+        currentBook = DBUtils.getBookByIsbn(isbn);
+        ///HANT
+        if (currentBook == null) {
+            System.out.println("Error: No book is selected.");
+            showAlert("No book selected.");
+            return;
+        }
+
+        System.out.println("Selected Book: " + currentBook.getTitle());
+        System.out.println("Selected Book Image Path: " + currentBook.getImagePath());
         showBookDetails();
 
         AnimationUtils.applyFadeTransition(label_title);
@@ -72,6 +85,11 @@ public class DetailsBookController implements Initializable {
     }
 
     private void showBookDetails() {
+        System.out.println("Tiêu đề : " + currentBook.getTitle()); ///DEBUG
+        System.out.println("ISBN : " + currentBook.getIsbn());
+        System.out.println("Image : " + currentBook.getImagePath());
+
+
         if (currentBook != null) {
             label_title.setText(currentBook.getTitle());
             label_author.setText(currentBook.getAuthor());
@@ -80,12 +98,30 @@ public class DetailsBookController implements Initializable {
             label_publishYear.setText("Publish Year: " + currentBook.getPublishYear());
             label_description.setText("Description: \n" + currentBook.getDescription());
 
-            Image coverImage;
-            if (currentBook.getImagePath() != null) {
-                coverImage = new Image("file:" + currentBook.getImagePath());
+            ///DEBUG
+            //label_category.setText("Title: " + currentBook.getTitle());
+            //System.out.println("Image Path nahhhh: " + currentBook.getImagePath());
+            Image coverImage; //            if (!currentBook.getImagePath().equals("Not found")) {
+
+            if (currentBook.getImagePath()!= null) {
+                System.out.println("OK : " + currentBook.getImagePath()); ///DEBUG
+                // Nếu imagePath là URL từ API
+                if (currentBook.getImagePath().startsWith("http")) {
+                    System.out.println("URL: " + currentBook.getImagePath());
+
+                    coverImage = new Image(currentBook.getImagePath(), true); // true để tải không đồng bộ
+                } else {
+                    // Nếu imagePath là đường dẫn file
+                    coverImage = new Image("file:" + currentBook.getImagePath());
+                }
+                System.out.println("COVER IMAGE ĐÃ LẤY TỪ API: " + currentBook.getImagePath());
             } else {
                 coverImage = new Image(getClass().getResource("/com/example/lib/bia-sach-harry-potter-va-cai-dit-con-me-may.jpg").toExternalForm());
+                System.out.println("COVER IMAGE HIỆN TẠI HEY: " + coverImage.getUrl());
+
+                System.out.println("COVER IMAGE LÀ ẢNH MẶC ĐỊNH");
             }
+            System.out.println("COVER IMAGE HIỆN TẠI: " + coverImage.getUrl());
             image_coverBook.setImage(coverImage);
         }
     }

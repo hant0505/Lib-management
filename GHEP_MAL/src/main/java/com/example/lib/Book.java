@@ -56,7 +56,23 @@ public class Book {
     }
 
 
-    ///Hant
+    ///USE IT in API_CLIENTGGBOOK_ IMAGEPATH
+    //Book book = new Book(isbn, title, author, Integer.parseInt(publishYear), quantity, description, category,imagePath);
+    public Book(String isbn, String title, String author, int publishYear, int quantity, String description, String category,String imagePath) {
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.publishYear = publishYear;
+        this.quantity = quantity;
+        this.category = category;
+        this.description = description;
+        this.imagePath = imagePath;
+        this.checkBox = new CheckBox();
+    }
+
+
+
+
     public Book(String isbn, String title, String author,  String category, int quantity, boolean isAvailable,String description) {
         this.isbn = isbn;
         this.title = title;
@@ -72,6 +88,19 @@ public class Book {
     public Book(String isbn) {
         this.isbn = isbn;
     }
+
+    /// getBooks DBUtils
+    public Book(String isbn, String title, String author, int publishYear, String category, int quantity, String imagePath) {
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.publishYear = publishYear;
+        this.category = category;
+        this.quantity = quantity;
+        this.imagePath = imagePath;
+    }
+
+
 
     public int getQuantity() {
         return quantity;

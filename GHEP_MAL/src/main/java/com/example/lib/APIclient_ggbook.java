@@ -9,6 +9,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URI;
@@ -44,6 +46,8 @@ public class APIclient_ggbook extends Application {
 
             if (statusCode == 200) {
                 String responseBody = response.body();
+                ///CHECK
+                // System.out.println("Nội dung phản hồi: " + responseBody);
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonNode = objectMapper.readTree(responseBody);
 
@@ -56,20 +60,36 @@ public class APIclient_ggbook extends Application {
                         String category = volumeInfo.has("categories") ? String.join(", ", getCategories(volumeInfo.get("categories"))) : "No Categories";
                         int quantity = 1;
 
+                        String imagePath = volumeInfo.path("imageLinks").path("thumbnail").asText();
+                        //System.out.println(imagePath); ///DEBUG
+//                        if (imagePath == null) {
+//                            imagePath = "com/example/lib/bia-sach-harry-potter-va-cai-dit-con-me-may.jpg"; // Sử dụng ảnh mặc định
+//                        }
 
+//                        ImageView coverImageView = new ImageView(new Image(imagePath));
+//                        coverImageView.setFitWidth(100);
+//                        coverImageView.setPreserveRatio(true);
 
                         // Lấy năm xuất bản - 4 ký tự
                         String publishYear = volumeInfo.has("publishedDate")
                                 ? volumeInfo.get("publishedDate").asText().substring(0, 4)
                                 : "Unknown Year";
 
-                        System.out.println(volumeInfo.toString());
+                        //System.out.println(volumeInfo.toString());
 
                         // Tạo đối tượng Book
-                        Book book = new Book(isbn, title, author, Integer.parseInt(publishYear), quantity, description, category);
+                        Book book = new Book(isbn, title, author, Integer.parseInt(publishYear), quantity, description, category,imagePath);
                         book.setDescription(description);
                         bookList.add(book);
+
+                        String selfLink = item.has("selfLink") ? item.get("selfLink").asText() : "No SelfLink";
+                        System.out.println("Chạy API-ing"); ///DEBUG
+                        System.out.println("link: " + selfLink);
+                        System.out.println("image: " + imagePath);
+
                     });
+
+
                 } else {
                     System.out.println("Không tìm thấy sách nào với ISBN: " + isbn);
                 }
@@ -96,7 +116,7 @@ public class APIclient_ggbook extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Chạy ứng dụng JavaFX
-        String isbn = "9786041198845"; // Ví dụ ISBN của một sách
+        String isbn = "9780747542155"; // Ví dụ ISBN của một sách
         // 9786041219212 9786041198845 9780439139595
         List<Book> books = getBooksByISBN(isbn);
         books.forEach(book -> {
@@ -105,6 +125,7 @@ public class APIclient_ggbook extends Application {
             System.out.println("Năm xuất bản:" + book.getPublishYear());
             System.out.println("Thể loại: " + book.getCategory());  // In ra thể loại
             System.out.println("Mô tả: " + book.getDescription()); // In ra mô tả
+            System.out.println("Ảnh bìa: " + book.getImagePath()); // In ra mô tả
             System.out.println("-----------");
         });
     }

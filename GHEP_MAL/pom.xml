@@ -58,6 +58,30 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.33</version> <!-- Thay đổi theo phiên bản mới nhất nếu cần -->
     </dependency>
+
+    <!-- Thêm ZXing vào dự án -->
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>core</artifactId>
+      <version>3.5.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.5.2</version>
+    </dependency>
+    <!-- QR CODE -->
+    <dependency>
+      <groupId>io.nayuki</groupId>
+      <artifactId>qrcodegen</artifactId>
+      <version>1.7.0</version>
+    </dependency>
+  <!-- org.java-websocket-->
+    <dependency>
+      <groupId>org.java-websocket</groupId>
+      <artifactId>Java-WebSocket</artifactId>
+      <version>1.5.3</version>
+    </dependency>
   </dependencies>
 
   <build>

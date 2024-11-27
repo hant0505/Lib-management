@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -22,6 +23,33 @@ public class Main extends Application {
         stage.setTitle("Book Info");
         stage.setResizable(false);
         stage.show();
+
+//        // Khởi động server HTTP trong một thread riêng
+//        new Thread(() -> {
+//            try {
+//                QRHttpServer.main(new String[]{});  // Khởi chạy server ở cổng 8080
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }).start();
+
+        /// Khởi động server HTTP để quét mã QR
+        try {
+            // Thay vì startServer(), gọi main() của QRHttpServer
+            new Thread(() -> {
+                try {
+                    QRHttpServer.main(new String[]{});  // Khởi chạy server ở cổng 8080
+                    System.out.println("HTTP Server started.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();  // Chạy server trong một thread riêng biệt
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // In thông báo rằng ứng dụng đã bắt đầu
+        System.out.println("JavaFX Application started.");
     }
 
 
