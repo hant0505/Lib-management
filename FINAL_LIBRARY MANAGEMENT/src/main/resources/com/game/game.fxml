@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7; -fx-background-radius: 0px;" stylesheets="@../../Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.GameController">
+   <ProgressBar fx:id="maxScoreBar" layoutX="116.0" layoutY="327.0" prefHeight="20.0" prefWidth="500.0" progress="0.0" style="-fx-background-radius: 0px; -fx-background-color: #f79d9c;" />
+     <FlowPane alignment="CENTER" prefHeight="100.0" prefWidth="1300.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0px;">
+         <opaqueInsets>
+             <Insets />
+         </opaqueInsets>
+         <Button fx:id="button_home" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Home">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         </Button>
+         <Button fx:id="button_transactionsForStu" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Transactions">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="HAND" />
+             </cursor>
+         </Button>
+         <Button fx:id="button_booksForStu" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Books">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="HAND" />
+             </cursor>
+         </Button>
+         <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ca9665; -fx-background-radius: 0px;" text="Game">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="DEFAULT" />
+             </cursor>
+         </Button>
+         <Button fx:id="button_account" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Account">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="HAND" />
+             </cursor>
+         </Button>
+     </FlowPane>
+     <Label fx:id="scoreLabel" layoutX="116.0" layoutY="160.0" style="-fx-font-size: 24px; -fx-text-fill: black;" text="Score: 0" />
+     <GridPane fx:id="gameGrid" hgap="7.0" layoutX="785.0" layoutY="170.0" maxHeight="380.0" maxWidth="380.0" prefHeight="380.0" prefWidth="380.0" vgap="7.0" />
+     <Button fx:id="button_tree" layoutX="116.0" layoutY="584.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="150.0" style="-fx-background-color: #cfda6b;" styleClass="buttonClick" text="Plant tree?" textAlignment="CENTER" textFill="#6f2d16">
+        <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+     </Button>
+     <Button fx:id="button_start" layoutX="116.0" layoutY="448.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="150.0" style="-fx-background-color: #cfda6b;" styleClass="buttonClick" text="Start" textAlignment="CENTER" textFill="#6f2d16">
+        <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+     </Button>
+    <HBox layoutX="195.0" layoutY="300.0" prefHeight="100.0" prefWidth="436.0" spacing="60.0">
+        <VBox prefHeight="81.0" prefWidth="40.0" spacing="5.0">
+            <ImageView fx:id="imageGift2000" fitHeight="58.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../Image/gift.png" />
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="2000">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+        </VBox>
+        <VBox prefHeight="81.0" prefWidth="40.0" spacing="5.0">
+            <ImageView fx:id="imageGift4000" fitHeight="58.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../Image/gift.png" />
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="4000">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+        </VBox>
+        <VBox prefHeight="81.0" prefWidth="40.0" spacing="5.0">
+            <ImageView fx:id="imageGift6000" fitHeight="58.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../Image/gift.png" />
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="6000">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+        </VBox>
+        <VBox prefHeight="81.0" prefWidth="40.0" spacing="5.0">
+            <ImageView fx:id="imageGift8000" fitHeight="58.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../Image/gift.png" />
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="8000">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+        </VBox>
+        <VBox prefHeight="81.0" prefWidth="40.0" spacing="5.0">
+            <ImageView fx:id="imageGift10000" fitHeight="58.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../Image/gift.png" />
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="59.0" text="10000">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+        </VBox>
+    </HBox>
+   <Label fx:id="dailyMaxScoreLabel" layoutX="116.0" layoutY="211.0" style="-fx-font-size: 24px; -fx-text-fill: black;" text="Max Score Today: 0" />
+   <Label fx:id="maxScoreLabel" layoutX="908.0" layoutY="605.0" style="-fx-font-size: 24px; -fx-text-fill: black;" text="Max Score: 0" />
+     <Label fx:id="loserLabel" layoutX="565.0" layoutY="325.0" prefHeight="70.0" prefWidth="190.0" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: red;" text="LOSER" textAlignment="CENTER" visible="false" />
+ </AnchorPane>

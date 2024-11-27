@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7;" stylesheets="@../../Style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.book.StuBooksController">
+     <FlowPane alignment="CENTER" layoutY="1.0" prefHeight="100.0" prefWidth="1300.0" style="-fx-background-color: #ebd8c4;">
+         <Button fx:id="button_home" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Home">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         </Button>
+         <Button fx:id="button_transactionsForStu" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Transactions">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         </Button>
+         <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ca9665; -fx-background-radius: 0;" text="Books">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+         </Button>
+         <Button fx:id="button_game" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Game">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         </Button>
+         <Button fx:id="button_account" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Account">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         </Button>
+     </FlowPane>
+
+     <!-- Book section with scroll -->
+     <ScrollPane hbarPolicy="ALWAYS" layoutY="286.0" prefHeight="410.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7;" vbarPolicy="NEVER">
+         <AnchorPane prefHeight="381.0" prefWidth="1301.0" style="-fx-background-color: #fcf4e7;">
+             <HBox fx:id="bookCardContainer" alignment="CENTER" layoutY="61.0" prefHeight="321.0" prefWidth="1300.0" spacing="20.0" style="-fx-background-color: transparent; padding: 20px;">
+             </HBox>
+         </AnchorPane>
+     </ScrollPane>
+   <TextField id="tf_search" fx:id="tf_search" layoutX="484.0" layoutY="204.0" prefHeight="33.0" prefWidth="401.0" promptText="Searching" style="-fx-background-color: #eedecc;">
+      <font>
+         <Font name="Century Gothic" size="12.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+   </TextField>
+    <ImageView fitHeight="75.0" fitWidth="72.0" layoutX="416.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../Image/4searching.png" />
+    </ImageView>
+   <Label layoutX="560.0" layoutY="123.0" text="Book Shelf" textFill="#65301c">
+      <font>
+         <Font name="Century Gothic Bold" size="36.0" />
+      </font>
+   </Label>
+ </AnchorPane>

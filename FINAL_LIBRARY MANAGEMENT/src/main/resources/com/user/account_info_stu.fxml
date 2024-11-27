@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.user.AccountController">
+    <AnchorPane stylesheets="@../../Style.css" prefHeight="700.0" prefWidth="1384.0" style="-fx-background-color: #fcf4e7;">
+        <FlowPane alignment="CENTER" layoutX="-7.0" prefHeight="100.0" prefWidth="1307.0" style="-fx-background-color: #ebd8c4;">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <Button fx:id="button_home" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" styleClass="buttonHome" style="-fx-background-color: #ebd8c4; -fx-cursor: hand; -fx-background-radius: 0px;" text="Home">
+                <font>
+                    <Font name="Century Gothic" size="24.0" />
+                </font>
+            </Button>
+            <Button fx:id="button_transactionsForStu" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" styleClass="buttonHome" style="-fx-background-color: #ebd8c4; -fx-cursor: hand; -fx-background-radius: 0px;" text="Transactions">
+                <font>
+                    <Font name="Century Gothic" size="24.0" />
+                </font>
+            </Button>
+            <Button fx:id="button_booksForStu" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" styleClass="buttonHome" style="-fx-background-color: #ebd8c4; -fx-cursor: hand; -fx-background-radius: 0px;" text="Books">
+                <font>
+                    <Font name="Century Gothic" size="24.0" />
+                </font>
+            </Button>
+            <Button fx:id="button_game" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" styleClass="buttonHome" style="-fx-background-color: #ebd8c4; -fx-cursor: hand; -fx-background-radius: 0px;" text="Game">
+                <font>
+                    <Font name="Century Gothic" size="24.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ca9665; -fx-background-radius: 0px;" text="Account">
+                <font>
+                    <Font name="Century Gothic" size="24.0" />
+                </font>
+            </Button>
+        </FlowPane>
+        <FlowPane layoutX="-4.0" layoutY="100.0" prefHeight="600.0" prefWidth="238.0" style="-fx-background-color: #f0e9dc; -fx-background-radius: 0px;">
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" style="-fx-background-color: #ca9665; -fx-background-radius: 0px;" text="Account Info">
+                <font>
+                    <Font name="Century Gothic" size="18.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Button fx:id="button_changePassword" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" styleClass="buttonHome" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Change Password">
+                <font>
+                    <Font name="Century Gothic" size="18.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Button fx:id="button_signOut" mnemonicParsing="false" prefHeight="52.0" prefWidth="242.0" styleClass="buttonHome" style="-fx-background-color: transparent;" text="Sign Out" textAlignment="CENTER">
+                <font>
+                    <Font name="Century Gothic" size="18.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Button fx:id="button_delAccount" styleClass="buttonHome" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Delete Account" textFill="#f53636">
+                <font>
+                    <Font name="Century Gothic" size="18.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+        </FlowPane>
+        <Label alignment="TOP_RIGHT" layoutX="372.0" layoutY="244.0" prefHeight="23.0" prefWidth="93.0" text="Name:">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_RIGHT" layoutX="377.0" layoutY="303.0" text="Username:">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_RIGHT" layoutX="372.0" layoutY="372.0" prefHeight="23.0" prefWidth="93.0" text="Email:">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <Label alignment="TOP_RIGHT" layoutX="372.0" layoutY="434.0" prefHeight="23.0" prefWidth="93.0" text="Phone:">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tf_username" layoutX="508.0" layoutY="296.0" prefHeight="37.0" prefWidth="340.0" style="-fx-background-color: #dfc19f;" text="bookTitle">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="tf_name" layoutX="508.0" layoutY="237.0" prefHeight="37.0" prefWidth="340.0" style="-fx-background-color: #dfc19f;" text="name">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="tf_phone" layoutX="508.0" layoutY="427.0" prefHeight="37.0" prefWidth="340.0" style="-fx-background-color: #dfc19f;" text="phone">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="tf_email" layoutX="508.0" layoutY="366.0" prefHeight="37.0" prefWidth="340.0" style="-fx-background-color: #dfc19f;" text="email">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </TextField>
+        <Button fx:id="button_edit" styleClass="buttonHome" layoutX="1078.0" layoutY="502.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" style="-fx-background-color: #cfda6b;" text="Edit">
+            <font>
+                <Font name="Century Gothic Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button fx:id="button_save" styleClass="buttonClick" layoutX="1078.0" layoutY="502.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" style="-fx-background-color: #cfda6b;" text="Save">
+            <font>
+                <Font name="Century Gothic Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="button_back" styleClass="buttonClick" layoutX="905.0" layoutY="502.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" style="-fx-background-color: #cfda6b;" text="Back">
+            <font>
+                <Font name="Century Gothic Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Label layoutX="313.0" layoutY="154.0" text="Account Information">
+            <font>
+                <Font name="Century Gothic Bold" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_name" layoutX="508.0" layoutY="237.0" prefHeight="37.0" prefWidth="340.0" style="-fx-background-color: #dfc19f;" text="name">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_username" layoutX="508.0" layoutY="296.0" prefHeight="37.0" prefWidth="340.0" style="-fx-background-color: #dfc19f;" text="username">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_email" layoutX="508.0" layoutY="365.0" prefHeight="37.0" prefWidth="340.0" style="-fx-background-color: #dfc19f;" text="email">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_phone" layoutX="508.0" layoutY="427.0" prefHeight="37.0" prefWidth="340.0" style="-fx-background-color: #dfc19f;" text="phone">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font>
+        </Label>
+    </AnchorPane>
+</HBox>

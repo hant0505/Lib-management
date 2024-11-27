@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7;" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effect.SplashController">
+    <ImageView fitHeight="700" fitWidth="1300" preserveRatio="true">
+        <image>
+            <Image url="@Image/capybaraGif.gif" />
+        </image>
+    </ImageView>
+    <Text layoutX="773.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0" style="-fx-fill: #333333;" text="    Welcome to Book Management System" textAlignment="CENTER" wrappingWidth="460.27813720703125">
+        <font>
+            <Font name="Century Gothic" size="48.0" />
+        </font>
+    </Text>
+    <Rectangle fx:id="rec_main" arcHeight="5.0" arcWidth="5.0" fill="#d3a29d" height="30.0" layoutX="794.0" layoutY="378.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
+    <Rectangle fx:id="rec_sub" arcHeight="5.0" arcWidth="5.0" fill="#a36361" height="30.0" layoutX="794.0" layoutY="377.0" stroke="BLACK" strokeType="INSIDE" width="59.0" />
+    <Text layoutX="898.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0" style="-fx-fill: #333333;" text="Loading">
+        <font>
+            <Font name="Century Gothic" size="18.0" />
+        </font>
+    </Text>
+    <Label fx:id="label_progress" layoutX="1016.0" layoutY="438.0" style="-fx-fill: #333333;" text="25%">
+        <font>
+            <Font name="Century Gothic" size="18.0" />
+        </font>
+    </Label>
+</AnchorPane>

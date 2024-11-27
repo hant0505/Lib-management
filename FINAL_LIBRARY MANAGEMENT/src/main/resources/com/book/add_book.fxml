@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="700.0" maxWidth="1300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.book.AddBookController">
+   <AnchorPane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7;" stylesheets="@../../Style.css">
+      <Pane prefHeight="127.0" prefWidth="1302.0" style="-fx-background-color: #dfc19f;">
+         <Label layoutX="72.0" layoutY="33.0" text="Add a book">
+            <font>
+               <Font name="Century Gothic" size="48.0" />
+            </font>
+         </Label>
+      </Pane>
+      <TextField fx:id="tf_bookTitle" layoutX="151.0" layoutY="172.0" prefHeight="45.0" prefWidth="220.0" promptText="Book Title">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <Pane layoutX="770.0" layoutY="127.0" prefHeight="574.0" prefWidth="534.0" style="-fx-background-color: #eedecc;">
+         <Button fx:id="button_check" layoutX="322.0" layoutY="464.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="82.0" styleClass="buttonClick" style="-fx-background-color: #c8a70f;" text="CHECK">
+            <font>
+               <Font name="Century Gothic" size="14.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_1" layoutX="145.0" layoutY="153.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="1">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_2" layoutX="240.0" layoutY="153.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="2">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_3" layoutX="337.0" layoutY="153.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="3">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_4" layoutX="145.0" layoutY="228.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="4">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_5" layoutX="240.0" layoutY="228.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="5">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_6" layoutX="337.0" layoutY="228.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="6">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_7" layoutX="145.0" layoutY="303.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="7">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_8" layoutX="240.0" layoutY="303.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="8">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_9" layoutX="337.0" layoutY="303.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="9">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button fx:id="button_0" layoutX="240.0" layoutY="378.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" styleClass="buttonHome" style="-fx-background-color: #ca9665;" text="0">
+            <font>
+               <Font name="Century Gothic" size="24.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <TextField fx:id="tf_bookISBN" layoutX="141.0" layoutY="64.0" prefHeight="52.0" prefWidth="251.0" promptText="ISBN" style="-fx-background-color: #dfdbdb;">
+            <font>
+               <Font name="Century Gothic" size="18.0" />
+            </font>
+         </TextField>
+         <Label layoutX="93.0" layoutY="464.0" prefHeight="39.0" prefWidth="206.0" text="Is the book already available?">
+            <font>
+               <Font name="Century Gothic" size="14.0" />
+            </font>
+         </Label>
+      </Pane>
+      <ImageView fx:id="imageView_cover" fitHeight="305.0" fitWidth="220.0" layoutX="439.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../Image/cover_not_found.png" />
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <TextField fx:id="tf_bookAuthor" layoutX="151.0" layoutY="238.0" prefHeight="46.0" prefWidth="220.0" promptText="Author">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tf_bookCategory" layoutX="151.0" layoutY="309.0" prefHeight="45.0" prefWidth="220.0" promptText="Category">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="ta_bookDescription" layoutX="151.0" layoutY="508.0" prefHeight="127.0" prefWidth="548.0" promptText="Review Book" wrapText="true">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="button_addABook" layoutX="174.0" layoutY="645.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="126.0" styleClass="buttonClick" style="-fx-background-color: #c8a70f;" text="ADD BOOK">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="47.0" layoutY="172.0" text="Title :">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="249.0" text="Author :">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="320.0" text="Category :">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="514.0" text="Description :">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tf_bookQuantity" layoutX="151.0" layoutY="378.0" prefHeight="45.0" prefWidth="220.0" promptText="Quantity">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="47.0" layoutY="389.0" text="Quantity :">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tf_bookPublishYear" layoutX="151.0" layoutY="444.0" prefHeight="46.0" prefWidth="220.0" promptText="Year">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="32.0" layoutY="455.0" text="Publish Year :">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="button_back" layoutX="433.0" layoutY="645.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="126.0" styleClass="buttonClick" style="-fx-background-color: #c8a70f;" text="BACK">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+    <Button fx:id="button_import" layoutX="439.0" layoutY="430.0" mnemonicParsing="false" opacity="0.88" prefHeight="36.0" prefWidth="214.0" style="-fx-background-color: #c8a70f; -fx-background-radius: 0;" text="Import" textAlignment="CENTER">
+         <font>
+            <Font name="Century Gothic Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </AnchorPane>
+</HBox>

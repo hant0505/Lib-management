@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="5" style="-fx-padding: 10; -fx-border-color: lightgray;" styleClass="book-card" stylesheets="@../../Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.book.BookCardController">
+    <ImageView fx:id="imageBookCover" fitHeight="214.0" fitWidth="157.0">
+      <image>
+         <Image url="@../Image/cover_not_found.png" />
+      </image>
+      <effect>
+         <DropShadow />
+      </effect></ImageView>
+    <Label fx:id="bookTitle" alignment="CENTER" prefHeight="77.0" prefWidth="178.0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-alignment: center; -fx-font-family: Corbel;" text="Title" textFill="#752215" wrapText="true">
+      <font>
+         <Font name="Century Gothic" size="12.0" />
+      </font></Label>
+</VBox>

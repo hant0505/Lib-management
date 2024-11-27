@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" stylesheets="@../../Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.book.DetailsBookController">
+    <AnchorPane prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7;" stylesheets="@../../Style.css">
+        <Label layoutX="96.0" layoutY="45.0" prefHeight="46.0" prefWidth="224.0" text="Book Details" AnchorPane.leftAnchor="96.0" AnchorPane.topAnchor="45.0">
+            <font>
+                <Font name="Century Gothic Bold" size="36.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="41.0" layoutY="350.0" prefWidth="1219.0" style="-fx-background-color: #f0e9dc; -fx-background-radius: 15px;">
+             <Label fx:id="label_description" alignment="TOP_LEFT" layoutX="58.0" layoutY="144.0" lineSpacing="5.0" prefWidth="528.0" text="Description" wrapText="true">
+                 <font>
+                     <Font name="Century Gothic" size="18.0" />
+                 </font>
+             </Label>
+             <Label fx:id="label_category" alignment="TOP_LEFT" layoutX="612.0" layoutY="156.0" lineSpacing="5.0" prefHeight="201.0" prefWidth="528.0" text="Category: Fiction">
+                 <font>
+                     <Font name="Century Gothic" size="18.0" />
+                 </font>
+             </Label>
+            <Label fx:id="label_quantity" layoutX="612.0" layoutY="14.0" lineSpacing="5.0" prefHeight="60.0" prefWidth="598.0" text="Quantity: ">
+                <font>
+                    <Font name="Century Gothic" size="18.0" />
+                </font>
+            </Label>
+        </AnchorPane>
+        <Label fx:id="label_title" layoutX="348.0" layoutY="131.0" lineSpacing="5.0" prefHeight="60.0" prefWidth="928.0" text="Title: Harry Potter and the Sorcerer's Stone" textFill="#732515">
+            <font>
+                <Font name="Corbel Bold Italic" size="42.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_author" layoutX="348.0" layoutY="210.0" prefHeight="60.0" prefWidth="696.0" text="Author: ">
+            <font>
+                <Font name="Corbel Light Italic" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_publishYear" layoutX="348.0" layoutY="270.0" lineSpacing="5.0" prefHeight="60.0" prefWidth="336.0" text="Publish year:">
+            <font>
+                <Font name="Corbel Light" size="24.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="image_coverBook" fitHeight="316.0" fitWidth="224.0" layoutX="98.0" layoutY="131.0" preserveRatio="true" AnchorPane.leftAnchor="98.0" AnchorPane.topAnchor="131.0">
+            <effect>
+                <DropShadow height="71.05" radius="42.92" spread="0.2" width="102.63" />
+            </effect>
+            <Image url="@../Image/cover_not_found.png" />
+        </ImageView>
+        <Button fx:id="button_close" layoutX="1157.0" layoutY="295.0" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #cfda6b;" styleClass="buttonClick" text="Close">
+            <font>
+                <Font name="Century Gothic Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="button_transact" layoutX="979.0" layoutY="295.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #cfda6b;" styleClass="buttonClick" text="Transact">
+            <font>
+                <Font name="Century Gothic Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+
+    </AnchorPane>
+   <styleClass>
+      <String fx:value="thumb" />
+      <String fx:value="scroll-bar" />
+      <String fx:value="scroll-pane" />
+      <String fx:value="track" />
+   </styleClass>
+</ScrollPane>

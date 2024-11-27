@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" stylesheets="@../../Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.book.StudentTransactionsController">
+   <ScrollPane layoutY="190.0">
+      <content>
+         <TableView fx:id="transTableViewForStu" prefHeight="510.0" prefWidth="1300.0" style="-fx-background-color: #fcf4e7;">
+            <columns>
+               <TableColumn fx:id="table_transID" prefWidth="119.0" style="-fx-alignment: center; -fx-background-color: #ebd8c4;" text="Transaction ID" />
+               <TableColumn fx:id="table_bookTitle" prefWidth="269.0" style="-fx-alignment: center; -fx-background-color: #ebd8c4;" text="Book Title" />
+               <TableColumn fx:id="table_borrowedDate" prefWidth="200.0" style="-fx-alignment: center; -fx-background-color: #ebd8c4;" text="Borrowed Date" />
+               <TableColumn fx:id="table_dueDate" prefWidth="200.0" style="-fx-alignment: center; -fx-background-color: #ebd8c4;" text="Due Date" />
+               <TableColumn fx:id="table_lateFee" minWidth="0.0" prefWidth="200.0" style="-fx-alignment: center; -fx-background-color: #ebd8c4;" text="Late Fee" />
+               <TableColumn fx:id="table_qr" prefWidth="177.0" style="-fx-alignment: center; -fx-background-color: #ebd8c4;" text="Transaction QR" />
+               <TableColumn fx:id="table_extendDueDate" prefWidth="134.0" style="-fx-alignment: center; -fx-background-color: #ebd8c4;" text="Extend Due Date" />
+            </columns>
+         </TableView>
+      </content>
+      <styleClass>
+         <String fx:value="scroll-pane" />
+         <String fx:value="scroll-bar" />
+         <String fx:value="thumb" />
+         <String fx:value="track" />
+      </styleClass>
+   </ScrollPane>
+     <FlowPane alignment="CENTER" prefHeight="100.0" prefWidth="1300.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0px;">
+         <opaqueInsets>
+             <Insets />
+         </opaqueInsets>
+         <Button fx:id="button_home" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Home">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         </Button>
+         <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ca9665; -fx-background-radius: 0;" text="Transactions">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="DEFAULT" />
+             </cursor>
+         </Button>
+         <Button fx:id="button_booksForStu" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Books">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="HAND" />
+             </cursor>
+         </Button>
+         <Button fx:id="button_game" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Game">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="HAND" />
+             </cursor>
+         </Button>
+         <Button fx:id="button_account" mnemonicParsing="false" prefHeight="100.0" prefWidth="260.0" style="-fx-background-color: #ebd8c4; -fx-background-radius: 0;" styleClass="buttonHome" text="Account">
+             <font>
+                 <Font name="Century Gothic" size="24.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="HAND" />
+             </cursor>
+         </Button>
+     </FlowPane>
+   <TextField id="tf_search" fx:id="tf_search" layoutX="103.0" layoutY="140.0" prefHeight="33.0" prefWidth="278.0" promptText="Searching" style="-fx-background-color: #eedecc;">
+      <font>
+         <Font name="Century Gothic" size="12.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+   </TextField>
+     <ImageView fitHeight="75.0" fitWidth="72.0" layoutX="35.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../Image/4searching.png" />
+     </ImageView>
+   <Label layoutX="464.0" layoutY="145.0" text="Late Fee: 10.000 VND/ day late" textFill="#ff2828">
+      <font>
+         <Font name="Century Gothic Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label fx:id="label_coin" layoutX="1181.0" layoutY="136.0" text="22">
+      <graphic>
+         <ImageView fitHeight="42.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../Image/coin.png" />
+            </image>
+         </ImageView>
+      </graphic>
+      <font>
+         <Font name="Century Gothic Bold" size="18.0" />
+      </font>
+   </Label>
+ </AnchorPane>
